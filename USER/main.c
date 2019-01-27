@@ -52,6 +52,15 @@ int main()
 		TIM_SetCompare3(TIM3,1);
 		TIM_SetCompare4(TIM3,1);
 		delay_ms(5000);	
+		
+		//转弯问题待解决
+		MOTOR_RIGHT_ADVANCE;
+		TIM_SetCompare1(TIM3,1000);
+		TIM_SetCompare2(TIM3,1000);
+		TIM_SetCompare3(TIM3,500);
+		TIM_SetCompare4(TIM3,500);
+		delay_ms(5000);	
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   		
 		MOTOR_LEFT_STBY_OFF;
 		MOTOR_RIGHT_STBY_OFF;
 		LED1_ON;
