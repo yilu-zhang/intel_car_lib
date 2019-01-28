@@ -25,5 +25,9 @@
 #include "gpio.h"
 #include "sfr.h"
 #include "tim.h"
+#include "control.h"
+#include "car_system.h"
+#include "isr.h"
+
 	
 #endif

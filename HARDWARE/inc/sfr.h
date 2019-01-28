@@ -13,27 +13,43 @@
 #include "sys.h"
 
 /*******************************led***********************************/
-//从后往前看
+#define LED0 PFout(9)	// DS0
+#define LED1 PFout(10)	// DS1	 
 #define LED0_ON GPIO_ResetBits(GPIOF,GPIO_Pin_9)
 #define LED0_OFF GPIO_SetBits(GPIOF,GPIO_Pin_9)
 #define LED1_ON GPIO_ResetBits(GPIOF,GPIO_Pin_10)
 #define LED1_OFF GPIO_SetBits(GPIOF,GPIO_Pin_10)
 
 /*******************************motor***********************************/
-#define MOTOR_RIGHT_STBY_ON GPIO_SetBits(GPIOE,GPIO_Pin_4)
-#define MOTOR_RIGHT_STBY_OFF GPIO_ResetBits(GPIOE,GPIO_Pin_4)
-#define MOTOR_RIGHT_ADVANCE do{GPIO_SetBits(GPIOE,GPIO_Pin_6);GPIO_ResetBits(GPIOE,GPIO_Pin_5);\
-							GPIO_SetBits(GPIOB,GPIO_Pin_5);GPIO_ResetBits(GPIOB,GPIO_Pin_7);}while(0);
-#define MOTOR_RIGHT_BACK do{GPIO_SetBits(GPIOE,GPIO_Pin_5);GPIO_ResetBits(GPIOE,GPIO_Pin_6);\
-							GPIO_SetBits(GPIOB,GPIO_Pin_7);GPIO_ResetBits(GPIOB,GPIO_Pin_5);}while(0);
+#define MOTOR_TIM TIM3
 
+//从后往前看,从左往右，从上到下，待调试
+//通过设置占空比制动，停止时将IN1,IN2拉低
 #define MOTOR_LEFT_STBY_ON GPIO_SetBits(GPIOF,GPIO_Pin_11)
 #define MOTOR_LEFT_STBY_OFF GPIO_ResetBits(GPIOF,GPIO_Pin_11)
-#define MOTOR_LEFT_ADVANCE do{GPIO_SetBits(GPIOF,GPIO_Pin_15);GPIO_ResetBits(GPIOF,GPIO_Pin_13);\
-							GPIO_SetBits(GPIOB,GPIO_Pin_15);GPIO_ResetBits(GPIOB,GPIO_Pin_14);}while(0);
-#define MOTOR_LEFT_BACK do{GPIO_SetBits(GPIOF,GPIO_Pin_13);GPIO_ResetBits(GPIOF,GPIO_Pin_15);\
-							GPIO_SetBits(GPIOB,GPIO_Pin_14);GPIO_ResetBits(GPIOB,GPIO_Pin_15);}while(0);							
-							
+#define MOTOR_LEFT_UP_ADVANCE do{GPIO_SetBits(GPIOB,GPIO_Pin_15);GPIO_ResetBits(GPIOB,GPIO_Pin_14);}while(0);
+#define MOTOR_LEFT_UP_BACK do{GPIO_SetBits(GPIOB,GPIO_Pin_14);GPIO_ResetBits(GPIOB,GPIO_Pin_15);}while(0);
+#define MOTOR_LEFT_UP_STOP do{GPIO_ResetBits(GPIOB,GPIO_Pin_14);GPIO_ResetBits(GPIOB,GPIO_Pin_15);}while(0);
 
-	
+#define MOTOR_LEFT_DOWN_ADVANCE do{GPIO_SetBits(GPIOF,GPIO_Pin_15);GPIO_ResetBits(GPIOF,GPIO_Pin_13);}while(0);
+#define MOTOR_LEFT_DOWN_BACK do{GPIO_SetBits(GPIOF,GPIO_Pin_13);GPIO_ResetBits(GPIOF,GPIO_Pin_15);}while(0);
+#define MOTOR_LEFT_DOWN_STOP do{GPIO_ResetBits(GPIOF,GPIO_Pin_13);GPIO_ResetBits(GPIOF,GPIO_Pin_15);}while(0);
+
+
+#define MOTOR_RIGHT_STBY_ON GPIO_SetBits(GPIOE,GPIO_Pin_4)
+#define MOTOR_RIGHT_STBY_OFF GPIO_ResetBits(GPIOE,GPIO_Pin_4)
+
+#define MOTOR_RIGHT_UP_ADVANCE do{GPIO_SetBits(GPIOB,GPIO_Pin_5);GPIO_ResetBits(GPIOB,GPIO_Pin_7);}while(0);
+#define MOTOR_RIGHT_UP_BACK do{GPIO_SetBits(GPIOB,GPIO_Pin_7);GPIO_ResetBits(GPIOB,GPIO_Pin_5);}while(0);
+#define MOTOR_RIGHT_UP_STOP do{GPIO_ResetBits(GPIOB,GPIO_Pin_7);GPIO_ResetBits(GPIOB,GPIO_Pin_5);}while(0);
+
+#define MOTOR_RIGHT_DOWN_ADVANCE do{GPIO_SetBits(GPIOE,GPIO_Pin_6);GPIO_ResetBits(GPIOE,GPIO_Pin_5);}while(0);
+#define MOTOR_RIGHT_DOWN_BACK do{GPIO_SetBits(GPIOE,GPIO_Pin_5);GPIO_ResetBits(GPIOE,GPIO_Pin_6);}while(0);
+#define MOTOR_RIGHT_DOWN_STOP do{GPIO_ResetBits(GPIOE,GPIO_Pin_5);GPIO_ResetBits(GPIOE,GPIO_Pin_6);}while(0);
+
+
+
+/*******************************system time***********************************/
+#define SYSTEM_TIM TIM4
+
 #endif

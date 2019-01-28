@@ -513,6 +513,26 @@
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\src\tim.c</FilePath>
             </File>
+            <File>
+              <FileName>control.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\src\control.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\src\bsp.c</FilePath>
+            </File>
+            <File>
+              <FileName>car_system.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\src\car_system.c</FilePath>
+            </File>
+            <File>
+              <FileName>isr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\src\isr.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

@@ -16,6 +16,10 @@
 "..\obj\sys.o"
 "..\obj\gpio.o"
 "..\obj\tim.o"
+"..\obj\control.o"
+"..\obj\bsp.o"
+"..\obj\car_system.o"
+"..\obj\isr.o"
 --strict --scatter "..\OBJ\Robot.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

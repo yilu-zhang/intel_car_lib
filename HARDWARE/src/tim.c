@@ -35,20 +35,20 @@ void motor_right_pwm_init(u32 arr3,u32 psc3)
 	TIM_TimeBaseInitStructure.TIM_CounterMode =TIM_CounterMode_Up;
 	TIM_TimeBaseInitStructure.TIM_Prescaler =psc3;
 	TIM_TimeBaseInitStructure.TIM_Period=arr3;
-	TIM_TimeBaseInit(TIM3,&TIM_TimeBaseInitStructure);
+	TIM_TimeBaseInit(MOTOR_TIM,&TIM_TimeBaseInitStructure);
 	
 	TIM_OCInitStructure.TIM_OCMode =TIM_OCMode_PWM1;   //选择定时器模式为PWM向上计数
 	TIM_OCInitStructure.TIM_OCPolarity =TIM_OCPolarity_High;//比较输出极性高
 	TIM_OCInitStructure.TIM_OutputState =TIM_OutputState_Enable;
-	TIM_OC1Init(TIM3,&TIM_OCInitStructure);
-	TIM_OC2Init(TIM3,&TIM_OCInitStructure);
+	TIM_OC1Init(MOTOR_TIM,&TIM_OCInitStructure);
+	TIM_OC2Init(MOTOR_TIM,&TIM_OCInitStructure);
 	
 
-	TIM_OC1PreloadConfig(TIM3,TIM_OCPreload_Enable);
-    TIM_OC2PreloadConfig(TIM3,TIM_OCPreload_Enable);
-	TIM_ARRPreloadConfig(TIM3,ENABLE);
+	TIM_OC1PreloadConfig(MOTOR_TIM,TIM_OCPreload_Enable);
+    TIM_OC2PreloadConfig(MOTOR_TIM,TIM_OCPreload_Enable);
+	TIM_ARRPreloadConfig(MOTOR_TIM,ENABLE);
 	
-	TIM_Cmd(TIM3,ENABLE);
+	TIM_Cmd(MOTOR_TIM,ENABLE);
 }
 void motor_left_pwm_init(u32 arr3,u32 psc3)
 { 
@@ -73,19 +73,43 @@ void motor_left_pwm_init(u32 arr3,u32 psc3)
 	TIM_TimeBaseInitStructure.TIM_CounterMode =TIM_CounterMode_Up;
 	TIM_TimeBaseInitStructure.TIM_Prescaler =psc3;
 	TIM_TimeBaseInitStructure.TIM_Period=arr3;
-	TIM_TimeBaseInit(TIM3,&TIM_TimeBaseInitStructure);
+	TIM_TimeBaseInit(MOTOR_TIM,&TIM_TimeBaseInitStructure);
 	
 	TIM_OCInitStructure.TIM_OCMode =TIM_OCMode_PWM1;   //选择定时器模式为PWM向上计数
 	TIM_OCInitStructure.TIM_OCPolarity =TIM_OCPolarity_High;//比较输出极性高
 	TIM_OCInitStructure.TIM_OutputState =TIM_OutputState_Enable;
-	TIM_OC3Init(TIM3,&TIM_OCInitStructure);
-	TIM_OC4Init(TIM3,&TIM_OCInitStructure);
+	TIM_OC3Init(MOTOR_TIM,&TIM_OCInitStructure);
+	TIM_OC4Init(MOTOR_TIM,&TIM_OCInitStructure);
 
-	TIM_OC3PreloadConfig(TIM3,TIM_OCPreload_Enable);
-    TIM_OC4PreloadConfig(TIM3,TIM_OCPreload_Enable);
-	TIM_ARRPreloadConfig(TIM3,ENABLE);
+	TIM_OC3PreloadConfig(MOTOR_TIM,TIM_OCPreload_Enable);
+    TIM_OC4PreloadConfig(MOTOR_TIM,TIM_OCPreload_Enable);
+	TIM_ARRPreloadConfig(MOTOR_TIM,ENABLE);
 	
-	TIM_Cmd(TIM3,ENABLE);
+	TIM_Cmd(MOTOR_TIM,ENABLE);
+}
 
+
+void sys_time_init(u32 arr,u32 psc)
+{
+	TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure;
+	NVIC_InitTypeDef NVIC_InitStructure;
+	
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4,ENABLE);  ///使能TIM3时钟
+	
+    TIM_TimeBaseInitStructure.TIM_Period = arr; 	//自动重装载值
+	TIM_TimeBaseInitStructure.TIM_Prescaler=psc;  //定时器分频
+	TIM_TimeBaseInitStructure.TIM_CounterMode=TIM_CounterMode_Up; //向上计数模式
+	TIM_TimeBaseInitStructure.TIM_ClockDivision=TIM_CKD_DIV1; 
+	
+	TIM_TimeBaseInit(SYSTEM_TIM,&TIM_TimeBaseInitStructure);//初始化TIM3
+	
+	TIM_ITConfig(SYSTEM_TIM,TIM_IT_Update,ENABLE); //允许定时器3更新中断
+	TIM_Cmd(SYSTEM_TIM,ENABLE); //使能定时器3
+	
+	NVIC_InitStructure.NVIC_IRQChannel=TIM4_IRQn; //定时器4中断
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority=0x01; //抢占优先级1
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority=0x03; //子优先级3
+	NVIC_InitStructure.NVIC_IRQChannelCmd=ENABLE;
+	NVIC_Init(&NVIC_InitStructure);	
 }
 

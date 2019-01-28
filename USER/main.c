@@ -9,62 +9,60 @@ int main()
 	led_init();
 	car_gpio_init();
 	motor_left_pwm_init(1999,21);
-	motor_right_pwm_init(1999,21); //84M/84=1Mhz的计数频率,重装载值20000，所以PWM频率为 1M/20000=50hz.	
-	LED0_ON;
-	LED1_OFF;
-	MOTOR_LEFT_STBY_ON;
-	MOTOR_RIGHT_STBY_ON;
-	MOTOR_LEFT_ADVANCE;
-	MOTOR_RIGHT_ADVANCE;
+	motor_right_pwm_init(1999,21); //84M/21=4Mhz的计数频率,重装载值2000，所以PWM频率为 4M/2000=2khz.	
 	
+	sys_time_init(1999, 42); //84M/42=2Mhz的计数频率,重装载值2000，所以PWM频率为 2M/2000=1khz.
+	car_init();
+
 	while(1)
 	{
-		TIM_SetCompare1(TIM3,1999);
-		TIM_SetCompare2(TIM3,1999);
-		TIM_SetCompare3(TIM3,1999);
-		TIM_SetCompare4(TIM3,1999);
-		delay_ms(5000);
-		TIM_SetCompare1(TIM3,1000);
-		TIM_SetCompare2(TIM3,1000);
-		TIM_SetCompare3(TIM3,1000);
-		TIM_SetCompare4(TIM3,1000);
-		delay_ms(5000);		
-		TIM_SetCompare1(TIM3,1);
-		TIM_SetCompare2(TIM3,1);
-		TIM_SetCompare3(TIM3,1);
-		TIM_SetCompare4(TIM3,1);
-		delay_ms(5000);	
-		MOTOR_LEFT_BACK;
-		MOTOR_RIGHT_BACK;
-		TIM_SetCompare1(TIM3,1999);
-		TIM_SetCompare2(TIM3,1999);
-		TIM_SetCompare3(TIM3,1999);
-		TIM_SetCompare4(TIM3,1999);
-		delay_ms(5000);
 		
-		TIM_SetCompare1(TIM3,1000);
-		TIM_SetCompare2(TIM3,1000);
-		TIM_SetCompare3(TIM3,1000);
-		TIM_SetCompare4(TIM3,1000);
-		delay_ms(5000);		
-		TIM_SetCompare1(TIM3,1);
-		TIM_SetCompare2(TIM3,1);
-		TIM_SetCompare3(TIM3,1);
-		TIM_SetCompare4(TIM3,1);
-		delay_ms(5000);	
-		
-		//转弯问题待解决
-		MOTOR_RIGHT_ADVANCE;
-		TIM_SetCompare1(TIM3,1000);
-		TIM_SetCompare2(TIM3,1000);
-		TIM_SetCompare3(TIM3,500);
-		TIM_SetCompare4(TIM3,500);
-		delay_ms(5000);	
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   		
-		MOTOR_LEFT_STBY_OFF;
-		MOTOR_RIGHT_STBY_OFF;
-		LED1_ON;
-	    LED0_OFF;
+		//flow_switch();
+		//motion_control();
 	}
 
 }
+
+//MOTOR_LEFT_STBY_ON;
+//	MOTOR_LEFT_UP_ADVANCE;
+//	set_dc_motor_left_up_pwm(1000);
+//	delay_ms(3000);
+//	set_dc_motor_left_up_pwm(0);
+//	delay_ms(3000);
+//	MOTOR_LEFT_UP_BACK;
+//	set_dc_motor_left_up_pwm(1000);
+//	delay_ms(3000);
+//	set_dc_motor_left_up_pwm(0);
+//	MOTOR_LEFT_DOWN_ADVANCE;
+//	set_dc_motor_left_down_pwm(1000);
+//	delay_ms(3000);
+//	set_dc_motor_left_down_pwm(0);
+//	delay_ms(3000);
+//	MOTOR_LEFT_DOWN_BACK;
+//	set_dc_motor_left_down_pwm(1000);
+//	delay_ms(3000);
+//	set_dc_motor_left_down_pwm(0);
+//	delay_ms(3000);
+//	MOTOR_LEFT_STBY_OFF;
+//	
+//	MOTOR_RIGHT_STBY_ON;
+//	MOTOR_RIGHT_UP_ADVANCE;
+//	set_dc_motor_right_up_pwm(1000);
+//	delay_ms(3000);
+//	set_dc_motor_right_up_pwm(0);
+//	delay_ms(3000);
+//	MOTOR_RIGHT_UP_BACK;
+//	set_dc_motor_right_up_pwm(1000);
+//	delay_ms(3000);
+//	set_dc_motor_right_up_pwm(0);
+//	MOTOR_RIGHT_DOWN_ADVANCE;
+//	set_dc_motor_right_down_pwm(1000);
+//	delay_ms(3000);
+//	set_dc_motor_right_down_pwm(0);
+//	delay_ms(3000);
+//	MOTOR_RIGHT_DOWN_BACK;
+//	set_dc_motor_right_down_pwm(1000);
+//	delay_ms(3000);
+//	set_dc_motor_right_down_pwm(0);
+//	delay_ms(3000);
+//	MOTOR_RIGHT_STBY_OFF;

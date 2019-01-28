@@ -40,3 +40,8 @@
 ..\obj\main.o: ..\HARDWARE\inc\gpio.h
 ..\obj\main.o: ..\HARDWARE\inc\sfr.h
 ..\obj\main.o: ..\HARDWARE\inc\tim.h
+..\obj\main.o: ..\HARDWARE\inc\control.h
+..\obj\main.o: ..\HARDWARE\inc\bsp.h
+..\obj\main.o: ..\HARDWARE\inc\isr.h
+..\obj\main.o: ..\HARDWARE\inc\parameter.h
+..\obj\main.o: ..\HARDWARE\inc\car_system.h
