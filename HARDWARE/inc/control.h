@@ -10,9 +10,16 @@
 enum DC_MOTOR_OP_STATE
 {
 	DC_MOTOR_OP_STATE_INIT,
+	
 	DC_MOTOR_OP_STATE_ADVANCE,
 	DC_MOTOR_OP_STATE_ADVANCE_WAIT,
+	
+	DC_MOTOR_OP_STATE_BACK,
+	DC_MOTOR_OP_STATE_BACK_WAIT,
+	
+	
 	DC_MOTOR_OP_STATE_FINISH,
+	DC_MOTOR_OP_STATE_FINISH_WAIT,
 	DC_MOTOR_OP_STATE_END,
 };
 
@@ -51,9 +58,12 @@ struct DC_Motor_Action_Function
 struct DC_Motor_Operation
 {
 	enum DC_MOTOR_OP_TYPE type;
+	
+	bool time_mode_flag;  //当set_dc_motor_operation（）action_time时间为0时为非时间运动模式，小车一直运动；否则小车运动设定时间停止
 	uint8_t state;
 	
-	uint32_t target_time;
+	uint32_t target_time;  
+	uint32_t action_time; //通过动作时间控制前进距离和转动角度
 	
     struct DC_Motor_Operation_Function fun;
 	
@@ -81,5 +91,6 @@ struct Motion_Component
 
 void motion_init(void);
 void motion_control(void);
+void set_dc_motor_operation(enum DC_MOTOR_OP_TYPE type, uint32_t action_time);
 
 #endif
