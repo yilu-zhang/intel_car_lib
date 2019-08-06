@@ -3,7 +3,7 @@
 ..\obj\car_system.o: ..\SYSTEM\sys\sys.h
 ..\obj\car_system.o: ..\USER\stm32f4xx.h
 ..\obj\car_system.o: ..\CORE\core_cm4.h
-..\obj\car_system.o: F:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\car_system.o: C:\Program Files (x86)\MDK5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\car_system.o: ..\CORE\core_cmInstr.h
 ..\obj\car_system.o: ..\CORE\core_cmFunc.h
 ..\obj\car_system.o: ..\CORE\core_cm4_simd.h
@@ -37,7 +37,9 @@
 ..\obj\car_system.o: ..\FWLIB\inc\stm32f4xx_dcmi.h
 ..\obj\car_system.o: ..\FWLIB\inc\stm32f4xx_fsmc.h
 ..\obj\car_system.o: ..\HARDWARE\inc\control.h
+..\obj\car_system.o: C:\Program Files (x86)\MDK5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\car_system.o: ..\HARDWARE\inc\bsp.h
 ..\obj\car_system.o: ..\HARDWARE\inc\sfr.h
 ..\obj\car_system.o: ..\HARDWARE\inc\isr.h
+..\obj\car_system.o: ..\HARDWARE\inc\infrared_remote.h
 ..\obj\car_system.o: ..\HARDWARE\inc\parameter.h

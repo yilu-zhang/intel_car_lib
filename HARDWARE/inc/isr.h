@@ -3,6 +3,7 @@
 
 #include "sys.h"
 #include "sfr.h"
+#include "infrared_remote.h" 
 
 extern uint32_t sys_time;
 

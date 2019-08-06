@@ -2,6 +2,7 @@
 #define __CONTROL_H
 
 //#include "car_system.h"  //头文件相互包含会出错
+#include <stdbool.h>  //bool类型
 #include "sys.h"
 #include "bsp.h"
 #include "isr.h"
@@ -92,5 +93,12 @@ struct Motion_Component
 void motion_init(void);
 void motion_control(void);
 void set_dc_motor_operation(enum DC_MOTOR_OP_TYPE type, uint32_t action_time);
+
+void dc_motor_action_advance(void); //for common.c test()
+void dc_motor_action_back(void);
+void dc_motor_action_turn_left(void);
+void dc_motor_action_turn_right(void);
+void dc_motor_action_stop(void);
+void dc_motor_action_brake(void);
 
 #endif

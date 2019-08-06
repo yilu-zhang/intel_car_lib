@@ -3,7 +3,7 @@
 ..\obj\gpio.o: ..\SYSTEM\sys\sys.h
 ..\obj\gpio.o: ..\USER\stm32f4xx.h
 ..\obj\gpio.o: ..\CORE\core_cm4.h
-..\obj\gpio.o: F:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\gpio.o: C:\Program Files (x86)\MDK5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\gpio.o: ..\CORE\core_cmInstr.h
 ..\obj\gpio.o: ..\CORE\core_cmFunc.h
 ..\obj\gpio.o: ..\CORE\core_cm4_simd.h

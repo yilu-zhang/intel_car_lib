@@ -533,6 +533,16 @@
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\src\isr.c</FilePath>
             </File>
+            <File>
+              <FileName>common.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\src\common.c</FilePath>
+            </File>
+            <File>
+              <FileName>infrared_remote.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\src\infrared_remote.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

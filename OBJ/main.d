@@ -1,7 +1,7 @@
 ..\obj\main.o: main.c
 ..\obj\main.o: stm32f4xx.h
 ..\obj\main.o: ..\CORE\core_cm4.h
-..\obj\main.o: F:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\main.o: C:\Program Files (x86)\MDK5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\main.o: ..\CORE\core_cmInstr.h
 ..\obj\main.o: ..\CORE\core_cmFunc.h
 ..\obj\main.o: ..\CORE\core_cm4_simd.h
@@ -41,7 +41,10 @@
 ..\obj\main.o: ..\HARDWARE\inc\sfr.h
 ..\obj\main.o: ..\HARDWARE\inc\tim.h
 ..\obj\main.o: ..\HARDWARE\inc\control.h
+..\obj\main.o: C:\Program Files (x86)\MDK5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\main.o: ..\HARDWARE\inc\bsp.h
 ..\obj\main.o: ..\HARDWARE\inc\isr.h
+..\obj\main.o: ..\HARDWARE\inc\infrared_remote.h
 ..\obj\main.o: ..\HARDWARE\inc\parameter.h
 ..\obj\main.o: ..\HARDWARE\inc\car_system.h
+..\obj\main.o: ..\HARDWARE\inc\common.h

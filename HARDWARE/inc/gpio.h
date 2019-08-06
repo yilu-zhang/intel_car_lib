@@ -13,5 +13,6 @@
 
 void led_init(void);
 void car_gpio_init(void);
+void infrared_remote_init(void);
 	
 #endif

@@ -2,6 +2,8 @@
 #include  "delay.h"
 #include "self_define.h"
 
+//按正点原子开发指南85页修改时钟频率，这里已经修改过来
+
 int main()
 {
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);//设置系统中断优先级分组2
@@ -13,10 +15,12 @@ int main()
 	
 	sys_time_init(1999, 42); //84M/42=2Mhz的计数频率,重装载值2000，所以PWM频率为 2M/2000=1khz.
 	car_init();
+	infrared_remote_init();
 
 	while(1)
 	{
-		
+		//test();
+		infrared_remote_test();
 		//flow_switch();
 		//motion_control();
 	}

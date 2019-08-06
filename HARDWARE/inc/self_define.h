@@ -28,6 +28,8 @@
 #include "control.h"
 #include "car_system.h"
 #include "isr.h"
+#include "common.h"
+#include "infrared_remote.h"
 
 	
 #endif

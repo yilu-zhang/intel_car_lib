@@ -1,9 +1,10 @@
 ..\obj\control.o: ..\HARDWARE\src\control.c
 ..\obj\control.o: ..\HARDWARE\inc\control.h
+..\obj\control.o: C:\Program Files (x86)\MDK5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\control.o: ..\SYSTEM\sys\sys.h
 ..\obj\control.o: ..\USER\stm32f4xx.h
 ..\obj\control.o: ..\CORE\core_cm4.h
-..\obj\control.o: F:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\control.o: C:\Program Files (x86)\MDK5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\control.o: ..\CORE\core_cmInstr.h
 ..\obj\control.o: ..\CORE\core_cmFunc.h
 ..\obj\control.o: ..\CORE\core_cm4_simd.h
@@ -39,5 +40,6 @@
 ..\obj\control.o: ..\HARDWARE\inc\bsp.h
 ..\obj\control.o: ..\HARDWARE\inc\sfr.h
 ..\obj\control.o: ..\HARDWARE\inc\isr.h
+..\obj\control.o: ..\HARDWARE\inc\infrared_remote.h
 ..\obj\control.o: ..\HARDWARE\inc\parameter.h
 ..\obj\control.o: ..\HARDWARE\inc\car_system.h

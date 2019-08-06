@@ -4,7 +4,7 @@
  *  File:         
  *  Author:      张溢炉
  *  Description: special function register
- *  Others:         
+ *  Others: 板上已连接口：PA8-红外遥控器
  *
  *********************************************************************/
 
@@ -23,7 +23,7 @@
 /*******************************motor***********************************/
 #define MOTOR_TIM TIM3
 
-//从后往前看,从左往右，从上到下，待调试
+//从后(带尖角端）往前看,从左往右，从上到下，待调试
 //通过设置占空比制动，停止时将IN1,IN2拉低
 #define MOTOR_LEFT_STBY_ON GPIO_SetBits(GPIOF,GPIO_Pin_11)
 #define MOTOR_LEFT_STBY_OFF GPIO_ResetBits(GPIOF,GPIO_Pin_11)
@@ -43,8 +43,8 @@
 #define MOTOR_RIGHT_UP_BACK do{GPIO_SetBits(GPIOB,GPIO_Pin_7);GPIO_ResetBits(GPIOB,GPIO_Pin_5);}while(0);
 #define MOTOR_RIGHT_UP_STOP do{GPIO_ResetBits(GPIOB,GPIO_Pin_7);GPIO_ResetBits(GPIOB,GPIO_Pin_5);}while(0);
 
-#define MOTOR_RIGHT_DOWN_ADVANCE do{GPIO_SetBits(GPIOE,GPIO_Pin_6);GPIO_ResetBits(GPIOE,GPIO_Pin_5);}while(0);
-#define MOTOR_RIGHT_DOWN_BACK do{GPIO_SetBits(GPIOE,GPIO_Pin_5);GPIO_ResetBits(GPIOE,GPIO_Pin_6);}while(0);
+#define MOTOR_RIGHT_DOWN_ADVANCE do{GPIO_SetBits(GPIOE,GPIO_Pin_5);GPIO_ResetBits(GPIOE,GPIO_Pin_6);}while(0);
+#define MOTOR_RIGHT_DOWN_BACK do{GPIO_SetBits(GPIOE,GPIO_Pin_6);GPIO_ResetBits(GPIOE,GPIO_Pin_5);}while(0);
 #define MOTOR_RIGHT_DOWN_STOP do{GPIO_ResetBits(GPIOE,GPIO_Pin_5);GPIO_ResetBits(GPIOE,GPIO_Pin_6);}while(0);
 
 

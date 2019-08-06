@@ -3,7 +3,7 @@
 ..\obj\isr.o: ..\SYSTEM\sys\sys.h
 ..\obj\isr.o: ..\USER\stm32f4xx.h
 ..\obj\isr.o: ..\CORE\core_cm4.h
-..\obj\isr.o: F:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\isr.o: C:\Program Files (x86)\MDK5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\isr.o: ..\CORE\core_cmInstr.h
 ..\obj\isr.o: ..\CORE\core_cmFunc.h
 ..\obj\isr.o: ..\CORE\core_cm4_simd.h
@@ -37,3 +37,4 @@
 ..\obj\isr.o: ..\FWLIB\inc\stm32f4xx_dcmi.h
 ..\obj\isr.o: ..\FWLIB\inc\stm32f4xx_fsmc.h
 ..\obj\isr.o: ..\HARDWARE\inc\sfr.h
+..\obj\isr.o: ..\HARDWARE\inc\infrared_remote.h

@@ -1,6 +1,7 @@
 #include "bsp.h"
 
 /*******************************motor***********************************/
+//pwm·¶Î§Îª500-1999
 void set_dc_motor_left_up_pwm(uint32_t pwm)
 {
 	if(pwm > DC_MOTOR_MAX_PWM)
