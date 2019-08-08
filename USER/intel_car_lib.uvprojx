@@ -483,6 +483,11 @@
               <FileType>1</FileType>
               <FilePath>..\FWLIB\src\stm32f4xx_usart.c</FilePath>
             </File>
+            <File>
+              <FileName>stm32f4xx_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FWLIB\src\stm32f4xx_flash.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -542,6 +547,21 @@
               <FileName>infrared_remote.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\src\infrared_remote.c</FilePath>
+            </File>
+            <File>
+              <FileName>mpu6050.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\src\mpu6050.c</FilePath>
+            </File>
+            <File>
+              <FileName>mpu6050_iic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\src\mpu6050_iic.c</FilePath>
+            </File>
+            <File>
+              <FileName>flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\src\flash.c</FilePath>
             </File>
           </Files>
         </Group>

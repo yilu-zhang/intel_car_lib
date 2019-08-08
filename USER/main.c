@@ -16,11 +16,17 @@ int main()
 	sys_time_init(1999, 42); //84M/42=2Mhz的计数频率,重装载值2000，所以PWM频率为 2M/2000=1khz.
 	car_init();
 	infrared_remote_init();
+	MPU_Init();
+	load_flash_data();
+	//flash_test();
+	mpu6050.quaternion.q0 =1;
 
 	while(1)
 	{
 		//test();
-		infrared_remote_test();
+		//infrared_remote_test();
+		mpu6050_test();
+		delay_ms(4);
 		//flow_switch();
 		//motion_control();
 	}

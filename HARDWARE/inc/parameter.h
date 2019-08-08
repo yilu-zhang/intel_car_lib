@@ -7,9 +7,10 @@
 #define DC_MOTOR_HIGH_SPEED 1200
 
 //设置转弯时四个轮子的速度，小半径转弯边速度低，半径转弯边速度高
-#define DC_MOTOR_TURN_UP_LOW_SPEED 1500  
-#define DC_MOTOR_TURN_DOWN_LOW_SPEED 1500
-#define DC_MOTOR_TURN_UP_HIGH_SPEED 1500
-#define DC_MOTOR_TURN_DOWN_HIGH_SPEED 1500
+//在家里地板比较滑，转弯时常绕一个轮子转，故使用一边轮后腿的方式转弯，后退防止靠近前方障碍物
+#define DC_MOTOR_TURN_UP_LOW_SPEED 0  
+#define DC_MOTOR_TURN_DOWN_LOW_SPEED 0
+#define DC_MOTOR_TURN_UP_HIGH_SPEED 1900
+#define DC_MOTOR_TURN_DOWN_HIGH_SPEED 1900
 
 #endif

@@ -110,33 +110,25 @@ void dc_motor_action_back(void)
 void dc_motor_action_turn_left(void)
 {
 	MOTOR_LEFT_STBY_ON;
-	MOTOR_RIGHT_STBY_ON;
+	//MOTOR_RIGHT_STBY_ON;
+	MOTOR_RIGHT_STBY_OFF;
 	
 	MOTOR_LEFT_UP_BACK;
 	MOTOR_LEFT_DOWN_BACK;
 	MOTOR_RIGHT_UP_ADVANCE;
 	MOTOR_RIGHT_DOWN_ADVANCE;
 		
-	set_dc_motor_left_up_pwm(DC_MOTOR_TURN_UP_LOW_SPEED);
-	set_dc_motor_left_down_pwm(DC_MOTOR_TURN_DOWN_LOW_SPEED);
-	set_dc_motor_right_up_pwm(DC_MOTOR_TURN_UP_HIGH_SPEED);
-	set_dc_motor_right_down_pwm(DC_MOTOR_TURN_DOWN_HIGH_SPEED);
+	set_dc_motor_left_up_pwm(DC_MOTOR_TURN_UP_HIGH_SPEED);
+	set_dc_motor_left_down_pwm(DC_MOTOR_TURN_DOWN_HIGH_SPEED);
+	set_dc_motor_right_up_pwm(DC_MOTOR_TURN_UP_LOW_SPEED);
+	set_dc_motor_right_down_pwm(DC_MOTOR_TURN_DOWN_LOW_SPEED);
 }
 	
 void dc_motor_action_turn_right(void)
 {
-	MOTOR_LEFT_STBY_ON;
-	MOTOR_RIGHT_STBY_ON;
-	
-//	MOTOR_LEFT_UP_ADVANCE;
-//	MOTOR_LEFT_DOWN_ADVANCE;
-//	MOTOR_RIGHT_UP_ADVANCE;
-//	MOTOR_RIGHT_DOWN_ADVANCE;
-//		
-//	set_dc_motor_left_up_pwm(DC_MOTOR_TURN_UP_HIGH_SPEED);
-//	set_dc_motor_left_down_pwm(DC_MOTOR_TURN_DOWN_HIGH_SPEED);
-//	set_dc_motor_right_up_pwm(DC_MOTOR_TURN_UP_LOW_SPEED);
-//	set_dc_motor_right_down_pwm(DC_MOTOR_TURN_DOWN_LOW_SPEED);	
+	//MOTOR_LEFT_STBY_ON;
+	MOTOR_LEFT_STBY_OFF;
+	MOTOR_RIGHT_STBY_ON;	
 
 	MOTOR_LEFT_UP_ADVANCE;
 	MOTOR_LEFT_DOWN_ADVANCE;
@@ -146,8 +138,8 @@ void dc_motor_action_turn_right(void)
 		
 	set_dc_motor_left_up_pwm(DC_MOTOR_TURN_UP_LOW_SPEED);
 	set_dc_motor_left_down_pwm(DC_MOTOR_TURN_DOWN_LOW_SPEED);
-	set_dc_motor_right_up_pwm(DC_MOTOR_TURN_UP_LOW_SPEED);
-	set_dc_motor_right_down_pwm(DC_MOTOR_TURN_DOWN_LOW_SPEED);	
+	set_dc_motor_right_up_pwm(DC_MOTOR_TURN_UP_HIGH_SPEED);
+	set_dc_motor_right_down_pwm(DC_MOTOR_TURN_DOWN_HIGH_SPEED);	
 }
 
 //制动完成再停止	

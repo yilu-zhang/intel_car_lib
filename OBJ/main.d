@@ -48,3 +48,7 @@
 ..\obj\main.o: ..\HARDWARE\inc\parameter.h
 ..\obj\main.o: ..\HARDWARE\inc\car_system.h
 ..\obj\main.o: ..\HARDWARE\inc\common.h
+..\obj\main.o: ..\HARDWARE\inc\mpu6050.h
+..\obj\main.o: ..\HARDWARE\inc\mpu6050_iic.h
+..\obj\main.o: ..\HARDWARE\inc\flash.h
+..\obj\main.o: ..\HARDWARE\inc\mpu6050.h
