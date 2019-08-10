@@ -47,3 +47,5 @@
 ..\obj\common.o: ..\HARDWARE\inc\mpu6050_iic.h
 ..\obj\common.o: ..\HARDWARE\inc\flash.h
 ..\obj\common.o: ..\HARDWARE\inc\mpu6050.h
+..\obj\common.o: ..\SYSTEM\delay\delay.h
+..\obj\common.o: ..\HARDWARE\inc\ultrasonic.h

@@ -33,6 +33,7 @@
 #include "mpu6050_iic.h"
 #include "mpu6050.h"
 #include "flash.h"
+#include "ultrasonic.h"
 
 	
 #endif

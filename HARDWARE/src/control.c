@@ -24,7 +24,7 @@ void dc_motor_op_advance(void)
 			{
 				action->type = DC_MOTOR_ACTION_BRAKE;
 				
-				op->target_time = sys_time + 1000;
+				op->target_time = systick_ms + 1000;
 				op->state = DC_MOTOR_OP_STATE_ADVANCE;
 			}
 			
@@ -35,7 +35,7 @@ void dc_motor_op_advance(void)
 			break;
 			
 		case DC_MOTOR_OP_STATE_ADVANCE:
-			if(sys_time > op->target_time)
+			if(systick_ms > op->target_time)
 			{
 				action->type = DC_MOTOR_ACTION_ADVANCE;
 				op->state = DC_MOTOR_OP_STATE_ADVANCE_WAIT;
@@ -47,12 +47,12 @@ void dc_motor_op_advance(void)
 			{
 				action->type = DC_MOTOR_ACTION_BRAKE;
 				
-				op->target_time = sys_time + 1000;
+				op->target_time = systick_ms + 1000;
 				op->state = DC_MOTOR_OP_STATE_FINISH;
 			}
 		
 		case DC_MOTOR_OP_STATE_FINISH:
-			if(sys_time > op->target_time)
+			if(systick_ms > op->target_time)
 			{
 				action->type = DC_MOTOR_ACTION_STOP;
 			}

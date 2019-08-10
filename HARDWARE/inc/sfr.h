@@ -12,6 +12,9 @@
 #define __SFR_H
 #include "sys.h"
 
+/*******************************system time***********************************/
+#define SYSTEM_TIM TIM4
+
 /*******************************led***********************************/
 #define LED0 PFout(9)	// DS0
 #define LED1 PFout(10)	// DS1	 
@@ -47,9 +50,13 @@
 #define MOTOR_RIGHT_DOWN_BACK do{GPIO_SetBits(GPIOE,GPIO_Pin_6);GPIO_ResetBits(GPIOE,GPIO_Pin_5);}while(0);
 #define MOTOR_RIGHT_DOWN_STOP do{GPIO_ResetBits(GPIOE,GPIO_Pin_5);GPIO_ResetBits(GPIOE,GPIO_Pin_6);}while(0);
 
+/*******************************ultrasonic***********************************/
+#define OPEN_RISING_EDGE GPIO_SetBits(GPIOF,GPIO_Pin_0)
+#define OPEN_FALLING_EDGE GPIO_ResetBits(GPIOF,GPIO_Pin_0)
 
 
-/*******************************system time***********************************/
-#define SYSTEM_TIM TIM4
+
+extern uint32_t systick_10us;  //11.93hÒç³ö
+extern uint32_t systick_ms;    //1193hÒç³ö
 
 #endif

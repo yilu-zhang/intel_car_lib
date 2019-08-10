@@ -8,14 +8,41 @@
  *
  *********************************************************************/
  #include "isr.h"
+ #include "ultrasonic.h"
  
  /*******************************system tim***********************************/
-uint32_t sys_time;
+uint32_t systick_10us;  //11.93h溢出
+uint32_t systick_ms;    //1193h溢出
 void TIM4_IRQHandler(void)
 {
 	if(TIM_GetITStatus(SYSTEM_TIM,TIM_IT_Update)==SET) //溢出中断
 	{
-		sys_time++;
+		systick_10us++;  
+		if(systick_10us%100==0)
+		{
+			systick_ms++;
+		}
+
+		//开启超声波，产生宽度为10us脉冲
+		if(ultrasonic.open_flag)
+		{
+			if(ultrasonic.open_pulse_wait_rising_edge_flag)
+			{
+				ultrasonic.falling_target_time_10us = systick_10us + 3;
+				OPEN_RISING_EDGE; //引脚输出高电平
+				TIM_OC1PolarityConfig(TIM5,TIM_ICPolarity_Rising); //CC1P=0	设置超声波输入为上升沿捕获
+				ultrasonic.open_pulse_wait_rising_edge_flag = false;
+			}
+			
+			else if(systick_10us >= ultrasonic.falling_target_time_10us)
+			{
+				OPEN_FALLING_EDGE;  //引脚输出低电平
+				ultrasonic.open_flag = false;
+				ultrasonic.receive_data_flag = false;
+				ultrasonic.rising_edge_flag  = false;
+				ultrasonic.open_pulse_wait_rising_edge_flag = true;
+			}
+		}
 	}
 	TIM_ClearITPendingBit(SYSTEM_TIM,TIM_IT_Update);  //清除中断标志位
 }
@@ -49,6 +76,7 @@ void TIM1_UP_TIM10_IRQHandler(void)
 	}
 	TIM_ClearITPendingBit(TIM1,TIM_IT_Update);  //清除中断标志位 
 } 
+
 //定时器1输入捕获中断服务程序	 
 void TIM1_CC_IRQHandler(void)
 { 		    	 
@@ -59,7 +87,8 @@ void TIM1_CC_IRQHandler(void)
 			TIM_OC1PolarityConfig(TIM1,TIM_ICPolarity_Falling);		//CC1P=1 设置为下降沿捕获
 			TIM_SetCounter(TIM1,0);	   	//清空定时器值
 			infrared_remote.status|=0X10;					//标记上升沿已经被捕获
-		}else //下降沿捕获
+		}
+		else //下降沿捕获
 		{
 			infrared_remote.pulse_value=TIM_GetCapture1(TIM1);//读取CCR1也可以清CC1IF标志位
 			TIM_OC1PolarityConfig(TIM1,TIM_ICPolarity_Rising); //CC1P=0	设置为上升沿捕获
@@ -92,4 +121,27 @@ void TIM1_CC_IRQHandler(void)
 	}
 	TIM_ClearITPendingBit(TIM1,TIM_IT_CC1);  //清除中断标志位 
 }
+
+//定时器8输入捕获中断服务程序	 
+void TIM5_IRQHandler(void)
+{ 		    	 
+	if(TIM_GetITStatus(TIM5,TIM_IT_CC1)==SET) //处理捕获(CC1IE)中断
+	{	  
+		if(RDATA_UL)//上升沿捕获
+		{
+			TIM_OC1PolarityConfig(TIM5,TIM_ICPolarity_Falling);		//CC1P=1 设置为下降沿捕获
+			TIM_SetCounter(TIM5,0);	   	//清空定时器值
+			ultrasonic.rising_edge_flag  = true;
+			//infrared_remote.status|=0X10;					//标记上升沿已经被捕获
+		}
+		else if(ultrasonic.rising_edge_flag)					//完成一次高电平捕获 //下降沿捕获
+		{
+			ultrasonic.pulse_value =TIM_GetCapture1(TIM5);//读取CCR1也可以清CC1IF标志位
+			ultrasonic.receive_data_flag = true;
+			ultrasonic.rising_edge_flag  = false;
+		}				 		     	    					   
+	}
+	TIM_ClearITPendingBit(TIM5,TIM_IT_CC1|TIM_IT_Update);  //清除中断标志位 
+}
+
 

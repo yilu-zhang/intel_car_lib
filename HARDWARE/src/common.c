@@ -65,3 +65,18 @@ void flash_test(void)
 	
 }
 
+uint32_t old_time;
+void systick_test(void)
+{
+	if((systick_ms-old_time)>=1000)
+	{
+		old_time=systick_ms;
+		LED0=!LED0;
+	}
+}
+
+void ultrasonic_test(void)
+{
+	ultrasonic_task();
+}
+

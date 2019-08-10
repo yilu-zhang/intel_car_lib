@@ -52,3 +52,4 @@
 ..\obj\main.o: ..\HARDWARE\inc\mpu6050_iic.h
 ..\obj\main.o: ..\HARDWARE\inc\flash.h
 ..\obj\main.o: ..\HARDWARE\inc\mpu6050.h
+..\obj\main.o: ..\HARDWARE\inc\ultrasonic.h
