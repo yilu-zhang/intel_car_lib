@@ -1,7 +1,7 @@
 #ifndef __CAR_SYSTEM_H
 #define __CAR_SYSTEM_H
 #include "sys.h"
-#include "control.h"
+#include "wheel.h"
 #include "parameter.h"
 
 extern struct Car car;

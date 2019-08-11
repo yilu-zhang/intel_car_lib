@@ -40,16 +40,17 @@
 ..\obj\main.o: ..\HARDWARE\inc\gpio.h
 ..\obj\main.o: ..\HARDWARE\inc\sfr.h
 ..\obj\main.o: ..\HARDWARE\inc\tim.h
-..\obj\main.o: ..\HARDWARE\inc\control.h
+..\obj\main.o: ..\HARDWARE\inc\wheel.h
 ..\obj\main.o: C:\Program Files (x86)\MDK5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\main.o: ..\HARDWARE\inc\bsp.h
 ..\obj\main.o: ..\HARDWARE\inc\isr.h
 ..\obj\main.o: ..\HARDWARE\inc\infrared_remote.h
 ..\obj\main.o: ..\HARDWARE\inc\parameter.h
 ..\obj\main.o: ..\HARDWARE\inc\car_system.h
-..\obj\main.o: ..\HARDWARE\inc\common.h
+..\obj\main.o: ..\HARDWARE\inc\test.h
 ..\obj\main.o: ..\HARDWARE\inc\mpu6050.h
 ..\obj\main.o: ..\HARDWARE\inc\mpu6050_iic.h
 ..\obj\main.o: ..\HARDWARE\inc\flash.h
 ..\obj\main.o: ..\HARDWARE\inc\mpu6050.h
 ..\obj\main.o: ..\HARDWARE\inc\ultrasonic.h
+..\obj\main.o: ..\HARDWARE\inc\steering_engine.h

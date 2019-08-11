@@ -36,7 +36,7 @@
 ..\obj\car_system.o: ..\FWLIB\inc\stm32f4xx_dac.h
 ..\obj\car_system.o: ..\FWLIB\inc\stm32f4xx_dcmi.h
 ..\obj\car_system.o: ..\FWLIB\inc\stm32f4xx_fsmc.h
-..\obj\car_system.o: ..\HARDWARE\inc\control.h
+..\obj\car_system.o: ..\HARDWARE\inc\wheel.h
 ..\obj\car_system.o: C:\Program Files (x86)\MDK5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\car_system.o: ..\HARDWARE\inc\bsp.h
 ..\obj\car_system.o: ..\HARDWARE\inc\sfr.h

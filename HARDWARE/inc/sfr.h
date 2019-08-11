@@ -23,9 +23,11 @@
 #define LED1_ON GPIO_ResetBits(GPIOF,GPIO_Pin_10)
 #define LED1_OFF GPIO_SetBits(GPIOF,GPIO_Pin_10)
 
-/*******************************motor***********************************/
+/*******************************timer***********************************/
 #define MOTOR_TIM TIM3
+#define STEERING_ENGINE_TIM TIM2
 
+/*******************************motor***********************************/
 //从后(带尖角端）往前看,从左往右，从上到下，待调试
 //通过设置占空比制动，停止时将IN1,IN2拉低
 #define MOTOR_LEFT_STBY_ON GPIO_SetBits(GPIOF,GPIO_Pin_11)
