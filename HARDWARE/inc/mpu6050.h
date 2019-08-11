@@ -171,15 +171,13 @@ struct 	Mpu6050
 	struct Attitude attitude;
 };
 
-
-
 extern struct Mpu6050 mpu6050;
 
 ////因为开发板接GND,所以转为读写地址后,为0XD1和0XD0(如果接GND,则为0XD3和0XD2)  
 //#define MPU_READ    0XD1
 //#define MPU_WRITE   0XD0
 
-u8 MPU_Init(void); 								//初始化MPU6050
+u8 mpu6050_Init(void); 								//初始化MPU6050
 u8 MPU_Write_Len(u8 addr,u8 reg,u8 len,u8 *buf);//IIC连续写
 u8 MPU_Read_Len(u8 addr,u8 reg,u8 len,u8 *buf); //IIC连续读 
 u8 MPU_Write_Byte(u8 reg,u8 data);				//IIC写一个字节
@@ -199,39 +197,3 @@ u8 MPU_Get_Accelerometer(short *ax,short *ay,short *az);
 void mpu6050_task(void);
 
 #endif
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

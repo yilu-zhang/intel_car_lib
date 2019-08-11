@@ -37,3 +37,4 @@
 ..\obj\infrared_remote.o: ..\FWLIB\inc\stm32f4xx_dcmi.h
 ..\obj\infrared_remote.o: ..\FWLIB\inc\stm32f4xx_fsmc.h
 ..\obj\infrared_remote.o: ..\SYSTEM\delay\delay.h
+..\obj\infrared_remote.o: ..\HARDWARE\inc\parameter.h

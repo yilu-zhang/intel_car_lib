@@ -42,10 +42,10 @@
 ..\obj\test.o: ..\HARDWARE\inc\sfr.h
 ..\obj\test.o: ..\HARDWARE\inc\isr.h
 ..\obj\test.o: ..\HARDWARE\inc\infrared_remote.h
+..\obj\test.o: ..\SYSTEM\delay\delay.h
 ..\obj\test.o: ..\HARDWARE\inc\parameter.h
 ..\obj\test.o: ..\HARDWARE\inc\mpu6050.h
 ..\obj\test.o: ..\HARDWARE\inc\mpu6050_iic.h
 ..\obj\test.o: ..\HARDWARE\inc\flash.h
 ..\obj\test.o: ..\HARDWARE\inc\mpu6050.h
-..\obj\test.o: ..\SYSTEM\delay\delay.h
 ..\obj\test.o: ..\HARDWARE\inc\ultrasonic.h

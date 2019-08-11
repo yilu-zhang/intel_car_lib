@@ -38,5 +38,7 @@
 ..\obj\isr.o: ..\FWLIB\inc\stm32f4xx_fsmc.h
 ..\obj\isr.o: ..\HARDWARE\inc\sfr.h
 ..\obj\isr.o: ..\HARDWARE\inc\infrared_remote.h
+..\obj\isr.o: ..\SYSTEM\delay\delay.h
+..\obj\isr.o: ..\HARDWARE\inc\parameter.h
 ..\obj\isr.o: ..\HARDWARE\inc\ultrasonic.h
 ..\obj\isr.o: C:\Program Files (x86)\MDK5\ARM\ARMCC\Bin\..\include\stdbool.h

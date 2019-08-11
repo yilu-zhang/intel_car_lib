@@ -1,6 +1,4 @@
 #include "infrared_remote.h"
-#include "delay.h"
-
 
 struct Ifrared_Remote infrared_remote; 
 

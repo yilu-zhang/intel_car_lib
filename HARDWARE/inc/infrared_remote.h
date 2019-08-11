@@ -2,13 +2,8 @@
 #define __INFRARED_REMOTE_H
 
 #include "sys.h"
-
-#define RDATA PAin(8)	 //红外数据输入脚
-#define RDATA_UL PAin(0)	 //超声波数据输入脚
-
-//红外遥控识别码(ID),每款遥控器的该值基本都不一样,但也有一样的.
-//我们选用的遥控器识别码为0
-#define REMOTE_ID 0  
+#include "delay.h"
+#include "parameter.h"
 
 enum INFRARED_REMOTE_KEY
 {

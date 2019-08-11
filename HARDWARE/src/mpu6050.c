@@ -8,8 +8,8 @@ struct Mpu6050 mpu6050;
 
 //初始化MPU6050
 //返回值:0,成功
-//    其他,错误代码
-u8 MPU_Init(void)
+//其他,错误代码
+u8 mpu6050_Init(void)
 { 
 	u8 res;
 	IIC_Init();//初始化IIC总线

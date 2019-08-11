@@ -75,33 +75,93 @@ void systick_test(void)
 	}
 }
 
+//1米内测试正常，误差1cm左右
 void ultrasonic_test(void)
 {
 	ultrasonic_task();
 }
 
+//用target_time可以减少运算量
+uint32_t test_steering_time=0;
+uint8_t test_steering_state=0;
 void steering_engine_test(void)
 {
-	TIM_SetCompare2(STEERING_ENGINE_TIM,500); //0度
-	delay_ms(5000);
-	TIM_SetCompare2(STEERING_ENGINE_TIM,950);  //45度
-	delay_ms(5000);
-	TIM_SetCompare2(STEERING_ENGINE_TIM,1400);  //90度
-	delay_ms(5000);
-	TIM_SetCompare2(STEERING_ENGINE_TIM,1850);  //135度
-	delay_ms(5000);
-	TIM_SetCompare2(STEERING_ENGINE_TIM,2300);  //180度,2300刚好180
-	delay_ms(5000);
-	
-//	TIM_SetCompare2(STEERING_ENGINE_TIM,4500); //0度
-//	delay_ms(5000);
-//	TIM_SetCompare2(STEERING_ENGINE_TIM,4000);  //45度
-//	delay_ms(5000);
-//	TIM_SetCompare2(STEERING_ENGINE_TIM,3500);  //90度
-//	delay_ms(5000);
-//	TIM_SetCompare2(STEERING_ENGINE_TIM,3000);  //135度
-//	delay_ms(5000);
-//	TIM_SetCompare2(STEERING_ENGINE_TIM,2500);  //180度
-//	delay_ms(5000);
+	switch(test_steering_state)
+	{
+		case 0:
+			if(systick_ms>=test_steering_time)
+			{
+				TIM_SetCompare2(STEERING_ENGINE_TIM,500); //0度
+				test_steering_state=1;
+				test_steering_time = systick_ms + 5000;			
+			}
+			break;
+		
+		case 1:
+			if(systick_ms>=test_steering_time)
+			{
+				TIM_SetCompare2(STEERING_ENGINE_TIM,950); //45度
+				test_steering_state=2;
+				test_steering_time = systick_ms + 5000;			
+			}
+			break;
+			
+		case 2:
+			if(systick_ms>=test_steering_time)
+			{
+				TIM_SetCompare2(STEERING_ENGINE_TIM,1400); //90度
+				test_steering_state=3;
+				test_steering_time = systick_ms + 5000;			
+			}
+			break;
+		
+		case 3:
+			if(systick_ms>=test_steering_time)
+			{
+				TIM_SetCompare2(STEERING_ENGINE_TIM,1850); //135度
+				test_steering_state=4;
+				test_steering_time = systick_ms + 5000;			
+			}
+			break;
+		
+		case 4:
+			if(systick_ms>=test_steering_time)
+			{
+				TIM_SetCompare2(STEERING_ENGINE_TIM,2300);  //180度,2300刚好180
+				test_steering_state=5;
+				test_steering_time = systick_ms + 5000;			
+			}
+			break;
+		
+		case 5:
+			if(systick_ms>=test_steering_time)
+			{
+				TIM_SetCompare2(STEERING_ENGINE_TIM,1850); //135度
+				test_steering_state=6;
+				test_steering_time = systick_ms + 5000;			
+			}
+			break;
+			
+		case 6:
+			if(systick_ms>=test_steering_time)
+			{
+				TIM_SetCompare2(STEERING_ENGINE_TIM,1400); //90度
+				test_steering_state=7;
+				test_steering_time = systick_ms + 5000;			
+			}
+			break;
+		
+		case 7:
+			if(systick_ms>=test_steering_time)
+			{
+				TIM_SetCompare2(STEERING_ENGINE_TIM,950); //45度
+				test_steering_state=0;
+				test_steering_time = systick_ms + 5000;			
+			}
+			break;
+		
+		default:
+			break;		
+	}	
 }
 

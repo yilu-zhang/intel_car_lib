@@ -9,6 +9,31 @@
  *********************************************************************/
 #include "tim.h"
 
+//系统时钟，TIM4
+void sys_time_init(u32 arr,u32 psc)
+{
+	TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure;
+	NVIC_InitTypeDef NVIC_InitStructure;
+	
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4,ENABLE);  ///使能TIM3时钟
+	
+    TIM_TimeBaseInitStructure.TIM_Period = arr; 	//自动重装载值
+	TIM_TimeBaseInitStructure.TIM_Prescaler=psc;  //定时器分频
+	TIM_TimeBaseInitStructure.TIM_CounterMode=TIM_CounterMode_Up; //向上计数模式
+	TIM_TimeBaseInitStructure.TIM_ClockDivision=TIM_CKD_DIV1; 
+	
+	TIM_TimeBaseInit(SYSTEM_TIM,&TIM_TimeBaseInitStructure);//初始化TIM3
+	
+	TIM_ITConfig(SYSTEM_TIM,TIM_IT_Update,ENABLE); //允许定时器3更新中断
+	TIM_Cmd(SYSTEM_TIM,ENABLE); //使能定时器3
+	
+	NVIC_InitStructure.NVIC_IRQChannel=TIM4_IRQn; //定时器4中断
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority=0x01; //抢占优先级1
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority=0x03; //子优先级3
+	NVIC_InitStructure.NVIC_IRQChannelCmd=ENABLE;
+	NVIC_Init(&NVIC_InitStructure);	
+}
+
 /*******PWM产生函数*******/
 //右侧直流电机pwm波TIM2,PA1
 void steering_engine_pwm_init(void)
@@ -132,31 +157,6 @@ void motor_left_pwm_init(u32 arr3,u32 psc3)
 	TIM_Cmd(MOTOR_TIM,ENABLE);
 }
 
-//系统时钟，TIM4
-void sys_time_init(u32 arr,u32 psc)
-{
-	TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure;
-	NVIC_InitTypeDef NVIC_InitStructure;
-	
-	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4,ENABLE);  ///使能TIM3时钟
-	
-    TIM_TimeBaseInitStructure.TIM_Period = arr; 	//自动重装载值
-	TIM_TimeBaseInitStructure.TIM_Prescaler=psc;  //定时器分频
-	TIM_TimeBaseInitStructure.TIM_CounterMode=TIM_CounterMode_Up; //向上计数模式
-	TIM_TimeBaseInitStructure.TIM_ClockDivision=TIM_CKD_DIV1; 
-	
-	TIM_TimeBaseInit(SYSTEM_TIM,&TIM_TimeBaseInitStructure);//初始化TIM3
-	
-	TIM_ITConfig(SYSTEM_TIM,TIM_IT_Update,ENABLE); //允许定时器3更新中断
-	TIM_Cmd(SYSTEM_TIM,ENABLE); //使能定时器3
-	
-	NVIC_InitStructure.NVIC_IRQChannel=TIM4_IRQn; //定时器4中断
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority=0x01; //抢占优先级1
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority=0x03; //子优先级3
-	NVIC_InitStructure.NVIC_IRQChannelCmd=ENABLE;
-	NVIC_Init(&NVIC_InitStructure);	
-}
-
 //红外遥控初始化
 //设置IO以及TIM1_CH1的输入捕获
 void infrared_remote_init(void)    			  
@@ -183,7 +183,7 @@ void infrared_remote_init(void)
 	TIM_TimeBaseStructure.TIM_CounterMode=TIM_CounterMode_Up; //向上计数模式
 	TIM_TimeBaseStructure.TIM_Period=10000;   //设定计数器自动重装值 最大10ms溢出  
 	TIM_TimeBaseStructure.TIM_ClockDivision=TIM_CKD_DIV1; 
-	TIM_TimeBaseInit(TIM1,&TIM_TimeBaseStructure); 
+	TIM_TimeBaseInit(INFRARED_REMOTE_TIM,&TIM_TimeBaseStructure); 
 	  
 	//初始化TIM2输入捕获参数
 	TIM1_ICInitStructure.TIM_Channel = TIM_Channel_1; //CC1S=01 	选择输入端 IC1映射到TI1上
@@ -191,10 +191,10 @@ void infrared_remote_init(void)
 	TIM1_ICInitStructure.TIM_ICSelection = TIM_ICSelection_DirectTI; //映射到TI1上
 	TIM1_ICInitStructure.TIM_ICPrescaler = TIM_ICPSC_DIV1;	 //配置输入分频,不分频 
 	TIM1_ICInitStructure.TIM_ICFilter = 0x03;//IC1F=0003 8个定时器时钟周期滤波
-	TIM_ICInit(TIM1, &TIM1_ICInitStructure);//初始化定时器2输入捕获通道
+	TIM_ICInit(INFRARED_REMOTE_TIM, &TIM1_ICInitStructure);//初始化定时器2输入捕获通道
 	 
 	TIM_ITConfig(TIM1,TIM_IT_Update|TIM_IT_CC1,ENABLE);//允许更新中断 ,允许CC1IE捕获中断	
-	TIM_Cmd(TIM1,ENABLE ); 	 	//使能定时器1
+	TIM_Cmd(INFRARED_REMOTE_TIM,ENABLE ); 	 	//使能定时器1
 
 	NVIC_InitStructure.NVIC_IRQChannel = TIM1_CC_IRQn;
 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority=1;//抢占优先级1
@@ -235,7 +235,7 @@ void ultrasonic_timer_init(void)
 	TIM_TimeBaseStructure.TIM_CounterMode=TIM_CounterMode_Up; //向上计数模式
 	TIM_TimeBaseStructure.TIM_Period=60000;   //设定计数器自动重装值 最大60ms溢出,最大脉冲时间=4*2/340*1000=23.53(ms)
 	TIM_TimeBaseStructure.TIM_ClockDivision=TIM_CKD_DIV1; 
-	TIM_TimeBaseInit(TIM5,&TIM_TimeBaseStructure); 
+	TIM_TimeBaseInit(ULTRASONIC_TIM,&TIM_TimeBaseStructure); 
 	  
 	//初始化TIM8输入捕获参数
 	TIM5_ICInitStructure.TIM_Channel = TIM_Channel_1; //CC1S=01 	选择输入端 IC1映射到TI1上
@@ -243,22 +243,15 @@ void ultrasonic_timer_init(void)
 	TIM5_ICInitStructure.TIM_ICSelection = TIM_ICSelection_DirectTI; //映射到TI1上
 	TIM5_ICInitStructure.TIM_ICPrescaler = TIM_ICPSC_DIV1;	 //配置输入分频,不分频 
 	TIM5_ICInitStructure.TIM_ICFilter = 0x00;//IC1F=0003 8个定时器时钟周期滤波
-	TIM_ICInit(TIM5, &TIM5_ICInitStructure);//初始化定时器2输入捕获通道
+	TIM_ICInit(ULTRASONIC_TIM, &TIM5_ICInitStructure);//初始化定时器2输入捕获通道
 	 
-	//TIM_ITConfig(TIM5,TIM_IT_Update|TIM_IT_CC1,ENABLE);//允许CC1IE捕获中断
 	TIM_ITConfig(TIM5,TIM_IT_CC1,ENABLE);//允许CC1IE捕获中断
-	TIM_Cmd(TIM5,ENABLE ); 	 	//使能定时器1
+	TIM_Cmd(ULTRASONIC_TIM,ENABLE ); 	 	//使能定时器1
 
 	NVIC_InitStructure.NVIC_IRQChannel = TIM5_IRQn;
 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority=0;//抢占优先级0
 	NVIC_InitStructure.NVIC_IRQChannelSubPriority =0;		//子优先级3
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;			//IRQ通道使能
 	NVIC_Init(&NVIC_InitStructure);	//初始化NVIC寄存器
-
-//	NVIC_InitStructure.NVIC_IRQChannel = TIM1_UP_TIM10_IRQn;
-//	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority=1;//抢占优先级3
-//	NVIC_InitStructure.NVIC_IRQChannelSubPriority =2;		//子优先级2
-//	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;			//IRQ通道使能
-//	NVIC_Init(&NVIC_InitStructure);	//初始化NVIC寄存器
 }
 

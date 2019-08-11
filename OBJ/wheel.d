@@ -41,5 +41,6 @@
 ..\obj\wheel.o: ..\HARDWARE\inc\sfr.h
 ..\obj\wheel.o: ..\HARDWARE\inc\isr.h
 ..\obj\wheel.o: ..\HARDWARE\inc\infrared_remote.h
+..\obj\wheel.o: ..\SYSTEM\delay\delay.h
 ..\obj\wheel.o: ..\HARDWARE\inc\parameter.h
 ..\obj\wheel.o: ..\HARDWARE\inc\car_system.h

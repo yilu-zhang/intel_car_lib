@@ -519,11 +519,6 @@
               <FilePath>..\HARDWARE\src\tim.c</FilePath>
             </File>
             <File>
-              <FileName>control.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\src\control.c</FilePath>
-            </File>
-            <File>
               <FileName>bsp.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\src\bsp.c</FilePath>
@@ -537,11 +532,6 @@
               <FileName>isr.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\src\isr.c</FilePath>
-            </File>
-            <File>
-              <FileName>common.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\src\common.c</FilePath>
             </File>
             <File>
               <FileName>infrared_remote.c</FileName>
@@ -567,6 +557,31 @@
               <FileName>ultrasonic.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\src\ultrasonic.c</FilePath>
+            </File>
+            <File>
+              <FileName>test.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\src\test.c</FilePath>
+            </File>
+            <File>
+              <FileName>application.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\src\application.c</FilePath>
+            </File>
+            <File>
+              <FileName>common.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\src\common.c</FilePath>
+            </File>
+            <File>
+              <FileName>wheel.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\src\wheel.c</FilePath>
+            </File>
+            <File>
+              <FileName>steering_engine.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\src\steering_engine.c</FilePath>
             </File>
           </Files>
         </Group>

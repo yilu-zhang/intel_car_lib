@@ -26,6 +26,8 @@
 /*******************************timer***********************************/
 #define MOTOR_TIM TIM3
 #define STEERING_ENGINE_TIM TIM2
+#define INFRARED_REMOTE_TIM TIM1
+#define ULTRASONIC_TIM TIM5
 
 /*******************************motor***********************************/
 //从后(带尖角端）往前看,从左往右，从上到下，待调试
@@ -53,8 +55,13 @@
 #define MOTOR_RIGHT_DOWN_STOP do{GPIO_ResetBits(GPIOE,GPIO_Pin_5);GPIO_ResetBits(GPIOE,GPIO_Pin_6);}while(0);
 
 /*******************************ultrasonic***********************************/
+#define ULTRASONIC_PIN_IN PAin(0)	 //超声波数据输入脚
 #define OPEN_RISING_EDGE GPIO_SetBits(GPIOF,GPIO_Pin_0)
 #define OPEN_FALLING_EDGE GPIO_ResetBits(GPIOF,GPIO_Pin_0)
+
+/*******************************infrared remote***********************************/
+#define INFRARED_REMOTE_PIN_IN PAin(8)	 //红外数据输入脚
+
 
 
 
