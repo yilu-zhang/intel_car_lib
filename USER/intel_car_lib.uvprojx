@@ -583,6 +583,11 @@
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\src\steering_engine.c</FilePath>
             </File>
+            <File>
+              <FileName>flow.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\src\flow.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

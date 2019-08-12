@@ -125,6 +125,7 @@ void IMUupdate(float gx, float gy, float gz, float ax, float ay, float az,\
     //sensor.attitude.roll = sensor.attitude.float_roll = -90+atan2(vx,vz) * RAD; //俯仰角，绕y轴转动	 
     //sensor.attitude.pitch = sensor.attitude.float_pitch =90-atan2(vx,vy)*RAD;
     //sensor.attitude.float_yaw = atan2(2*q1*q2 + 2*q0*q3,-2*q2*q2 - 2*q3*q3 + 1) * RAD;  //偏航角，绕z轴转动
+	//从后往前看，横滚角正常，顺时针为负，逆时针为正，平放0；实际pitch对着yaw，float是yaw的10倍，前倾正，后仰负，平放0；实际yaw没反应，左右转三个方向都没反应；测试pitch85
 	mpu->attitude.roll = mpu->attitude.float_roll = -asin(vz) * RAD; //俯仰角，绕y轴转动	 
     mpu->attitude.pitch = mpu->attitude.float_pitch =asin(vy)*RAD;
     mpu->attitude.float_yaw = asin(vx) * RAD;  //偏航角，绕z轴转动

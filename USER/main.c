@@ -3,8 +3,9 @@
 #include "self_define.h"
 
 //按正点原子开发指南85页修改时钟频率，这里已经修改过来
+uint32_t i=0,j=400,k,l;
 int main()
-{	
+{
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);//设置系统中断优先级分组2
 	
 	delay_init(168);
@@ -39,11 +40,23 @@ int main()
 
 	while(1)
 	{
-		communication_task();
-		update_sensor_data();
-		flow_switch();
-		flow_process();
-		motion_control();
+		if(system_flag_4ms_1 != system_flag_4ms_2)
+		{
+			i = j;
+			j = systick_10us;
+			if((j-i)!=400&&k>1000)
+				break;
+			
+			k++;
+			
+			system_flag_4ms_1 = system_flag_4ms_2;
+			communication_task();
+			update_sensor_data();
+			flow_switch();
+			flow_process();
+			motion_control();
+			l = systick_10us - j;
+		}
 		
 		//LED0=!LED0;
 		//test();

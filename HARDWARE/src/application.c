@@ -13,6 +13,7 @@ void update_sensor_data(void)
 {
 	ultrasonic_task();
 	mpu6050_task();
+	mpu6050_task();
 }
 
 /*******************************control**************************************/

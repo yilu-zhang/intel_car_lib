@@ -13,6 +13,8 @@
  /*******************************system tim***********************************/
 uint32_t systick_10us;  //11.93h溢出
 uint32_t systick_ms;    //1193h溢出
+uint8_t system_flag_4ms_1=0;
+uint8_t system_flag_4ms_2=0;
 void TIM4_IRQHandler(void)
 {
 	if(TIM_GetITStatus(SYSTEM_TIM,TIM_IT_Update)==SET) //溢出中断
@@ -21,6 +23,11 @@ void TIM4_IRQHandler(void)
 		if(systick_10us%100==0)
 		{
 			systick_ms++;
+		}
+		
+		if(systick_10us%400==0)
+		{
+			system_flag_4ms_2 ^= 0x01;
 		}
 
 		generate_ultrasonic_trigger_pulse();

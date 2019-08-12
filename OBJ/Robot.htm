@@ -3,9 +3,9 @@
 <title>Static Call Graph - [..\OBJ\Robot.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\Robot.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Mon Aug 12 20:35:15 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Mon Aug 12 23:22:16 2019
 <BR><P>
-<H3>Maximum Stack Usage =        288 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        296 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 __rt_entry_main &rArr; main &rArr; update_sensor_data &rArr; mpu6050_task &rArr; mpu6050_update &rArr; MPU6050_Data_Process &rArr; IMUupdate &rArr; __hardfp_asin &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 <P>
@@ -246,7 +246,7 @@ Global Symbols
 <P><STRONG><a name="[135]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[78]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 288 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 296 + Unknown Stack Size
 <LI>Call Chain = __rt_entry_main &rArr; main &rArr; update_sensor_data &rArr; mpu6050_task &rArr; mpu6050_update &rArr; MPU6050_Data_Process &rArr; IMUupdate &rArr; __hardfp_asin &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -924,7 +924,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f40_41xxx.o(RESET)
 </UL>
-<P><STRONG><a name="[2a]"></a>TIM4_IRQHandler</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, isr.o(i.TIM4_IRQHandler))
+<P><STRONG><a name="[2a]"></a>TIM4_IRQHandler</STRONG> (Thumb, 94 bytes, Stack size 8 bytes, isr.o(i.TIM4_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = TIM4_IRQHandler &rArr; TIM_GetITStatus
 </UL>
 <BR>[Calls]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;generate_ultrasonic_trigger_pulse
@@ -1448,8 +1448,8 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[79]"></a>main</STRONG> (Thumb, 132 bytes, Stack size 0 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 288<LI>Call Chain = main &rArr; update_sensor_data &rArr; mpu6050_task &rArr; mpu6050_update &rArr; MPU6050_Data_Process &rArr; IMUupdate &rArr; __hardfp_asin &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
+<P><STRONG><a name="[79]"></a>main</STRONG> (Thumb, 228 bytes, Stack size 8 bytes, main.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 296<LI>Call Chain = main &rArr; update_sensor_data &rArr; mpu6050_task &rArr; mpu6050_update &rArr; MPU6050_Data_Process &rArr; IMUupdate &rArr; __hardfp_asin &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_sensor_data
 <LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_timer_init
@@ -1744,7 +1744,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ec]"></a>update_sensor_data</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, application.o(i.update_sensor_data))
+<P><STRONG><a name="[ec]"></a>update_sensor_data</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, application.o(i.update_sensor_data))
 <BR><BR>[Stack]<UL><LI>Max Depth = 288<LI>Call Chain = update_sensor_data &rArr; mpu6050_task &rArr; mpu6050_update &rArr; MPU6050_Data_Process &rArr; IMUupdate &rArr; __hardfp_asin &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_task
