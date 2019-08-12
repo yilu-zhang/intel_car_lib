@@ -44,3 +44,11 @@
 ..\obj\car_system.o: ..\HARDWARE\inc\infrared_remote.h
 ..\obj\car_system.o: ..\SYSTEM\delay\delay.h
 ..\obj\car_system.o: ..\HARDWARE\inc\parameter.h
+..\obj\car_system.o: ..\HARDWARE\inc\mpu6050.h
+..\obj\car_system.o: ..\HARDWARE\inc\mpu6050_iic.h
+..\obj\car_system.o: C:\Program Files (x86)\MDK5\ARM\ARMCC\Bin\..\include\math.h
+..\obj\car_system.o: ..\HARDWARE\inc\ultrasonic.h
+..\obj\car_system.o: ..\HARDWARE\inc\steering_engine.h
+..\obj\car_system.o: ..\HARDWARE\inc\application.h
+..\obj\car_system.o: ..\HARDWARE\inc\flow.h
+..\obj\car_system.o: ..\HARDWARE\inc\car_system.h

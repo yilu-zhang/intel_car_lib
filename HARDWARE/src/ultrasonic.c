@@ -1,44 +1,45 @@
 #include "ultrasonic.h"
-
-struct Ultrasonic ultrasonic;
+#include "car_system.h"
 
 //开启超声波，产生宽度为30us脉冲
 void generate_ultrasonic_trigger_pulse(void)
-{	
-	if(ultrasonic.open_flag)
+{
+	struct Ultrasonic *ultra = &car.component.ultrasonic; //用缩写形式，防止指针和结构体同名，即使没什么影响
+	if(ultra->open_flag)
 	{
-		if(ultrasonic.open_pulse_wait_rising_edge_flag)
+		if(ultra->open_pulse_wait_rising_edge_flag)
 		{
-			ultrasonic.falling_target_time_10us = systick_10us + 3;
+			ultra->falling_target_time_10us = systick_10us + 3;
 			OPEN_RISING_EDGE; //引脚输出高电平
 			TIM_OC1PolarityConfig(TIM5,TIM_ICPolarity_Rising); //CC1P=0	设置超声波输入为上升沿捕获
-			ultrasonic.open_pulse_wait_rising_edge_flag = false;
+			ultra->open_pulse_wait_rising_edge_flag = false;
 		}
 		
-		else if(systick_10us >= ultrasonic.falling_target_time_10us)
+		else if(systick_10us >= ultra->falling_target_time_10us)
 		{
 			OPEN_FALLING_EDGE;  //引脚输出低电平
-			ultrasonic.open_flag = false;
-			ultrasonic.receive_data_flag = false;
-			ultrasonic.rising_edge_flag  = false;
-			ultrasonic.open_pulse_wait_rising_edge_flag = true;
+			ultra->open_flag = false;
+			ultra->receive_data_flag = false;
+			ultra->rising_edge_flag  = false;
+			ultra->open_pulse_wait_rising_edge_flag = true;
 		}
 	}
 }
 
 void ultrasonic_task(void)
 {
-	if((systick_ms-ultrasonic.open_time_ms)>=100)
+	struct Ultrasonic *ultra = &car.component.ultrasonic;
+	if((systick_ms-ultra->open_time_ms)>=100)
 	{
-		ultrasonic.open_flag = true;
-		ultrasonic.open_pulse_wait_rising_edge_flag=true;
-		ultrasonic.open_time_ms = systick_ms;		
+		ultra->open_flag = true;
+		ultra->open_pulse_wait_rising_edge_flag=true;
+		ultra->open_time_ms = systick_ms;		
 	}
 	
-	if(ultrasonic.receive_data_flag)
+	if(ultra->receive_data_flag)
 	{
-		ultrasonic.receive_data_flag = false;
-		ultrasonic.obstacle_diatance = ultrasonic.pulse_value*0.017; //单位cm
+		ultra->receive_data_flag = false;
+		ultra->obstacle_diatance = ultra->pulse_value*0.017; //单位cm
 	}
 };
 

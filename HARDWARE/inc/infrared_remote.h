@@ -13,10 +13,13 @@ enum INFRARED_REMOTE_KEY
 	INFRARED_REMOTE_KEY_TURN_LEFT,
 	INFRARED_REMOTE_KEY_TURN_RIGHT,
 	INFRARED_REMOTE_KEY_STOP,
+	
+	INFRARED_REMOTE_KEY_STEERIN_ENGINE_TURN_LEFT,
+	INFRARED_REMOTE_KEY_STEERIN_ENGINE_TURN_RIGHT,
 	INFRARED_REMOTE_KEY_END,
 };
 
-struct Ifrared_Remote
+struct Infrared_Remote
 {
 	//遥控器接收状态
 	//[7]:收到了引导码标志
@@ -33,8 +36,6 @@ struct Ifrared_Remote
 	
 	enum INFRARED_REMOTE_KEY key; 
 };
-
-extern struct Ifrared_Remote infrared_remote; 
 
 void infrared_remote_task(void);
 

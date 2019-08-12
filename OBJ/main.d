@@ -47,10 +47,13 @@
 ..\obj\main.o: ..\HARDWARE\inc\infrared_remote.h
 ..\obj\main.o: ..\HARDWARE\inc\parameter.h
 ..\obj\main.o: ..\HARDWARE\inc\car_system.h
-..\obj\main.o: ..\HARDWARE\inc\test.h
 ..\obj\main.o: ..\HARDWARE\inc\mpu6050.h
 ..\obj\main.o: ..\HARDWARE\inc\mpu6050_iic.h
-..\obj\main.o: ..\HARDWARE\inc\flash.h
-..\obj\main.o: ..\HARDWARE\inc\mpu6050.h
+..\obj\main.o: C:\Program Files (x86)\MDK5\ARM\ARMCC\Bin\..\include\math.h
 ..\obj\main.o: ..\HARDWARE\inc\ultrasonic.h
 ..\obj\main.o: ..\HARDWARE\inc\steering_engine.h
+..\obj\main.o: ..\HARDWARE\inc\application.h
+..\obj\main.o: ..\HARDWARE\inc\flow.h
+..\obj\main.o: ..\HARDWARE\inc\car_system.h
+..\obj\main.o: ..\HARDWARE\inc\test.h
+..\obj\main.o: ..\HARDWARE\inc\flash.h

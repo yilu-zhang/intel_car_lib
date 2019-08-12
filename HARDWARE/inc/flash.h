@@ -3,6 +3,7 @@
 
 //#include "sys.h"
 #include "mpu6050.h"
+#include "car_system.h"
 
 #define FLASH_ADDR_START 0x080E0000
 #define FLASH_NULL_WORD_DATA 0xFFFFFFFF		//falsh±»²Á³ýºóÎª0xFFFFFFFF	

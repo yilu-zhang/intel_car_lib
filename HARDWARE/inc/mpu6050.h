@@ -2,7 +2,10 @@
 #define __MPU6050_H
 #include "mpu6050_iic.h" 
 #include <stdbool.h>  //bool类型
-#include "flash.h"
+#include "sys.h"
+#include "delay.h"
+#include <math.h>
+//#include "usart.h"   
 
 //#define MPU_ACCEL_OFFS_REG		0X06	//accel_offs寄存器,可读取版本号,寄存器手册未提到
 //#define MPU_PROD_ID_REG			0X0C	//prod id寄存器,在寄存器手册未提到
@@ -171,7 +174,6 @@ struct 	Mpu6050
 	struct Attitude attitude;
 };
 
-extern struct Mpu6050 mpu6050;
 
 ////因为开发板接GND,所以转为读写地址后,为0XD1和0XD0(如果接GND,则为0XD3和0XD2)  
 //#define MPU_READ    0XD1

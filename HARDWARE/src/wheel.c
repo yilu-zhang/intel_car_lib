@@ -3,15 +3,26 @@
  *  Subsystem:   
  *  File:         
  *  Author:      张溢炉
- *  Description: 
+ *  Description:op-完成整个动作的一系列流程，action-细分动作，如左转 
  *  Others:         
  *
  ***************************************************************W******/
 #include "wheel.h"
 #include "car_system.h"
 
-struct Car car;
+//void set_dc_motor_operation(enum DC_MOTOR_OP_TYPE type, uint32_t action_time);  //通过时间转弯时
+//供应用层设置运动模式，在operation函数中执行
+void set_dc_motor_operation(enum DC_MOTOR_OP_TYPE type) //通过姿态传感器来控制转动角度
+{
+	struct DC_Motor_Operation *op = &car.component.dc_motor.op;
 
+	if(op->type!= type)
+	{
+		op->type = type;
+		op->state = DC_MOTOR_OP_STATE_INIT;
+	}
+}
+	
 void dc_motor_op_advance(void)
 {
 	struct DC_Motor_Operation *op = &car.component.dc_motor.op;
@@ -38,24 +49,11 @@ void dc_motor_op_advance(void)
 			if(systick_ms > op->target_time)
 			{
 				action->type = DC_MOTOR_ACTION_ADVANCE;
-				op->state = DC_MOTOR_OP_STATE_ADVANCE_WAIT;
+				op->state = DC_MOTOR_OP_STATE_FINISH;
 			}
 			break;
 		
-		case DC_MOTOR_OP_STATE_ADVANCE_WAIT:
-			if(op->state != DC_MOTOR_OP_ADVANCE)
-			{
-				action->type = DC_MOTOR_ACTION_BRAKE;
-				
-				op->target_time = systick_ms + 1000;
-				op->state = DC_MOTOR_OP_STATE_FINISH;
-			}
-		
-		case DC_MOTOR_OP_STATE_FINISH:
-			if(systick_ms > op->target_time)
-			{
-				action->type = DC_MOTOR_ACTION_STOP;
-			}
+		case DC_MOTOR_OP_STATE_FINISH:			
 			break;
 		
 		default:
@@ -64,16 +62,156 @@ void dc_motor_op_advance(void)
 }
 	
 void dc_motor_op_back(void)
-{}
+{
+	struct DC_Motor_Operation *op = &car.component.dc_motor.op;
+	struct DC_Motor_Action *action = &car.component.dc_motor.action;
+
+	switch(op->state)
+	{
+		case DC_MOTOR_OP_STATE_INIT:
+			if(action->type != DC_MOTOR_ACTION_STOP)
+			{
+				action->type = DC_MOTOR_ACTION_BRAKE;
+				
+				op->target_time = systick_ms + 1000;
+				op->state = DC_MOTOR_OP_STATE_BACK;
+			}
+			
+			else
+			{
+				op->state = DC_MOTOR_OP_STATE_BACK;
+			}
+			break;
+			
+		case DC_MOTOR_OP_STATE_BACK:
+			if(systick_ms > op->target_time)
+			{
+				action->type = DC_MOTOR_ACTION_BACK;
+				op->state = DC_MOTOR_OP_STATE_FINISH;
+			}
+			break;
+		
+		case DC_MOTOR_OP_STATE_FINISH:			
+			break;
+		
+		default:
+			break;
+	}
+}
 
 void dc_motor_op_turn_left(void)
-{}
+{
+	struct DC_Motor_Operation *op = &car.component.dc_motor.op;
+	struct DC_Motor_Action *action = &car.component.dc_motor.action;
+
+	switch(op->state)
+	{
+		case DC_MOTOR_OP_STATE_INIT:
+			if(action->type != DC_MOTOR_ACTION_STOP)
+			{
+				action->type = DC_MOTOR_ACTION_BRAKE;
+				
+				op->target_time = systick_ms + 1000;
+				op->state = DC_MOTOR_OP_STATE_TURN_LEFT;
+			}
+			
+			else
+			{
+				op->state = DC_MOTOR_OP_STATE_TURN_LEFT;
+			}
+			break;
+			
+		case DC_MOTOR_OP_STATE_TURN_LEFT:
+			if(systick_ms > op->target_time)
+			{
+				action->type = DC_MOTOR_ACTION_TURN_LEFT;
+				op->state = DC_MOTOR_OP_STATE_FINISH;
+			}
+			break;
+		
+		case DC_MOTOR_OP_STATE_FINISH:			
+			break;
+		
+		default:
+			break;
+	}
+}
 	
 void dc_motor_op_turn_right(void)
-{}
+{
+	struct DC_Motor_Operation *op = &car.component.dc_motor.op;
+	struct DC_Motor_Action *action = &car.component.dc_motor.action;
+
+	switch(op->state)
+	{
+		case DC_MOTOR_OP_STATE_INIT:
+			if(action->type != DC_MOTOR_ACTION_STOP)
+			{
+				action->type = DC_MOTOR_ACTION_BRAKE;
+				
+				op->target_time = systick_ms + 1000;
+				op->state = DC_MOTOR_OP_STATE_TURN_RIGHT;
+			}
+			
+			else
+			{
+				op->state = DC_MOTOR_OP_STATE_TURN_RIGHT;
+			}
+			break;
+			
+		case DC_MOTOR_OP_STATE_TURN_RIGHT:
+			if(systick_ms > op->target_time)
+			{
+				action->type = DC_MOTOR_ACTION_TURN_RIGHT;
+				op->state = DC_MOTOR_OP_STATE_FINISH;
+			}
+			break;
+		
+		case DC_MOTOR_OP_STATE_FINISH:			
+			break;
+		
+		default:
+			break;
+	}
+}
 		
 void dc_motor_op_stop(void)
-{}
+{
+	struct DC_Motor_Operation *op = &car.component.dc_motor.op;
+	struct DC_Motor_Action *action = &car.component.dc_motor.action;
+
+	switch(op->state)
+	{
+		case DC_MOTOR_OP_STATE_INIT:
+			if(action->type != DC_MOTOR_ACTION_STOP)
+			{
+				action->type = DC_MOTOR_ACTION_BRAKE;
+				
+				op->target_time = systick_ms + 1000;
+				op->state = DC_MOTOR_OP_STATE_STOP;
+			}
+			
+			else
+			{
+				op->state = DC_MOTOR_OP_STATE_STOP;
+			}
+			break;
+			
+		case DC_MOTOR_OP_STATE_STOP:
+			if(systick_ms > op->target_time)
+			{
+				action->type = DC_MOTOR_ACTION_STOP;
+				op->state = DC_MOTOR_OP_STATE_FINISH;
+			}
+			break;
+		
+		case DC_MOTOR_OP_STATE_FINISH:			
+			break;
+		
+		default:
+			break;
+	}
+}
 	
 void dc_motor_action_advance(void)
 {	
@@ -187,21 +325,4 @@ void init_dc_motor(void)
 	action->fun.f[DC_MOTOR_ACTION_BRAKE] = dc_motor_action_brake;
 	action->fun.f[DC_MOTOR_ACTION_STOP] = dc_motor_action_stop;
 }
-void dc_motor_control(void)
-{
-	struct DC_Motor_Operation *op = &car.component.dc_motor.op;
-	struct DC_Motor_Action *action = &car.component.dc_motor.action;
-	
-	op->fun.f[op->type];
-	action->fun.f[action->type];
-}
 
-void motion_init(void)
-{
-    init_dc_motor();    
-}
-
-void motion_control(void)
-{	
-	dc_motor_control();
-}

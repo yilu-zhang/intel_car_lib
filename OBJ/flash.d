@@ -39,4 +39,17 @@
 ..\obj\flash.o: ..\FWLIB\inc\stm32f4xx_dcmi.h
 ..\obj\flash.o: ..\FWLIB\inc\stm32f4xx_fsmc.h
 ..\obj\flash.o: C:\Program Files (x86)\MDK5\ARM\ARMCC\Bin\..\include\stdbool.h
-..\obj\flash.o: ..\HARDWARE\inc\flash.h
+..\obj\flash.o: ..\SYSTEM\delay\delay.h
+..\obj\flash.o: C:\Program Files (x86)\MDK5\ARM\ARMCC\Bin\..\include\math.h
+..\obj\flash.o: ..\HARDWARE\inc\car_system.h
+..\obj\flash.o: ..\HARDWARE\inc\wheel.h
+..\obj\flash.o: ..\HARDWARE\inc\bsp.h
+..\obj\flash.o: ..\HARDWARE\inc\sfr.h
+..\obj\flash.o: ..\HARDWARE\inc\isr.h
+..\obj\flash.o: ..\HARDWARE\inc\infrared_remote.h
+..\obj\flash.o: ..\HARDWARE\inc\parameter.h
+..\obj\flash.o: ..\HARDWARE\inc\ultrasonic.h
+..\obj\flash.o: ..\HARDWARE\inc\steering_engine.h
+..\obj\flash.o: ..\HARDWARE\inc\application.h
+..\obj\flash.o: ..\HARDWARE\inc\flow.h
+..\obj\flash.o: ..\HARDWARE\inc\car_system.h

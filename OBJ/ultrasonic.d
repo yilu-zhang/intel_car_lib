@@ -38,3 +38,17 @@
 ..\obj\ultrasonic.o: ..\FWLIB\inc\stm32f4xx_dcmi.h
 ..\obj\ultrasonic.o: ..\FWLIB\inc\stm32f4xx_fsmc.h
 ..\obj\ultrasonic.o: ..\HARDWARE\inc\sfr.h
+..\obj\ultrasonic.o: ..\HARDWARE\inc\car_system.h
+..\obj\ultrasonic.o: ..\HARDWARE\inc\wheel.h
+..\obj\ultrasonic.o: ..\HARDWARE\inc\bsp.h
+..\obj\ultrasonic.o: ..\HARDWARE\inc\isr.h
+..\obj\ultrasonic.o: ..\HARDWARE\inc\infrared_remote.h
+..\obj\ultrasonic.o: ..\SYSTEM\delay\delay.h
+..\obj\ultrasonic.o: ..\HARDWARE\inc\parameter.h
+..\obj\ultrasonic.o: ..\HARDWARE\inc\mpu6050.h
+..\obj\ultrasonic.o: ..\HARDWARE\inc\mpu6050_iic.h
+..\obj\ultrasonic.o: C:\Program Files (x86)\MDK5\ARM\ARMCC\Bin\..\include\math.h
+..\obj\ultrasonic.o: ..\HARDWARE\inc\steering_engine.h
+..\obj\ultrasonic.o: ..\HARDWARE\inc\application.h
+..\obj\ultrasonic.o: ..\HARDWARE\inc\flow.h
+..\obj\ultrasonic.o: ..\HARDWARE\inc\car_system.h

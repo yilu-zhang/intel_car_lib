@@ -46,6 +46,11 @@
 ..\obj\test.o: ..\HARDWARE\inc\parameter.h
 ..\obj\test.o: ..\HARDWARE\inc\mpu6050.h
 ..\obj\test.o: ..\HARDWARE\inc\mpu6050_iic.h
+..\obj\test.o: C:\Program Files (x86)\MDK5\ARM\ARMCC\Bin\..\include\math.h
 ..\obj\test.o: ..\HARDWARE\inc\flash.h
-..\obj\test.o: ..\HARDWARE\inc\mpu6050.h
+..\obj\test.o: ..\HARDWARE\inc\car_system.h
 ..\obj\test.o: ..\HARDWARE\inc\ultrasonic.h
+..\obj\test.o: ..\HARDWARE\inc\steering_engine.h
+..\obj\test.o: ..\HARDWARE\inc\application.h
+..\obj\test.o: ..\HARDWARE\inc\flow.h
+..\obj\test.o: ..\HARDWARE\inc\car_system.h

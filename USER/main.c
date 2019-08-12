@@ -13,8 +13,6 @@ int main()
 	led_init();
 	
 	car_gpio_init();
-	car_init();
-
 	
 	motor_left_pwm_init(1999,20);
 	motor_right_pwm_init(1999,20); //84M/(20+1)=4Mhz的计数频率,重装载值(1999+1)=2000，所以PWM频率为 4M/2000=2khz.	
@@ -32,25 +30,24 @@ int main()
 	
 	steering_engine_pwm_init();
 	TIM_SetCompare2(STEERING_ENGINE_TIM,1400);  //90度,初始化时对准正前方
-	delay_ms(5000);
+	delay_ms(2000);
+
+	car_init();  //初始化小车的一些参数
 	
-	mpu6050.quaternion.q0 =1;
+		
 	//flash_test();
 
 	while(1)
 	{
-		steering_engine_test();
-		//test();
-		infrared_remote_test();
-		//mpu6050_test();
-		ultrasonic_test();
-		//systick_test();
-		//flow_switch();
-		//motion_control();
+		communication_task();
+		update_sensor_data();
+		flow_switch();
+		flow_process();
+		motion_control();
+		
 		//LED0=!LED0;
-		delay_ms(4);
-
+		//test();
+		//delay_ms(4);
 	}
-
 }
 

@@ -9,14 +9,9 @@
 #include "delay.h"
 #include "sfr.h"
 #include "ultrasonic.h"
+#include "car_system.h"
 
 
 void test(void);
-void infrared_remote_test(void);
-void mpu6050_test(void);
-void flash_test(void);
-void systick_test(void);
-void ultrasonic_test(void);
-void steering_engine_test(void);
 
 #endif

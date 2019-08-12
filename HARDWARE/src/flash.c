@@ -32,6 +32,7 @@ void store_config_data( void)
 void load_flash_data(void)
 {
 	uint8_t i;
+	struct Mpu6050 *mpu = &car.component.mpu6050;
 	
 	for(i=0; i< FLASH_WORD_DATA_SIZE; ++i)
 	{
@@ -45,15 +46,15 @@ void load_flash_data(void)
 		|| (flash_data.word_data[FLASH_ADDR_MPU6050_GYROY_OFFSET] == 0)\
 		|| (flash_data.word_data[FLASH_ADDR_MPU6050_GYROZ_OFFSET] == 0))  
 	{
-		mpu6050.get_offset_flag = false;
+		mpu->get_offset_flag = false;
 	}
 	else
 	{
-		mpu6050.gyro_offset[MPU6050_GYROX_OFFSET] = flash_data.float_data[FLASH_ADDR_MPU6050_GYROX_OFFSET];
-		mpu6050.gyro_offset[MPU6050_GYROY_OFFSET] = flash_data.float_data[FLASH_ADDR_MPU6050_GYROY_OFFSET];
-		mpu6050.gyro_offset[MPU6050_GYROZ_OFFSET] = flash_data.float_data[FLASH_ADDR_MPU6050_GYROZ_OFFSET];
+		mpu->gyro_offset[MPU6050_GYROX_OFFSET] = flash_data.float_data[FLASH_ADDR_MPU6050_GYROX_OFFSET];
+		mpu->gyro_offset[MPU6050_GYROY_OFFSET] = flash_data.float_data[FLASH_ADDR_MPU6050_GYROY_OFFSET];
+		mpu->gyro_offset[MPU6050_GYROZ_OFFSET] = flash_data.float_data[FLASH_ADDR_MPU6050_GYROZ_OFFSET];
 		
-		mpu6050.get_offset_flag = true;
+		mpu->get_offset_flag = true;
 		//mpu6050.get_offset_flag = false;
 	}
 }

@@ -18,8 +18,6 @@ struct Ultrasonic
 	float obstacle_diatance;  //实际距离，单位：cm
 };
 
-extern struct Ultrasonic ultrasonic;
-
 void generate_ultrasonic_trigger_pulse(void);
 void ultrasonic_task(void);
 

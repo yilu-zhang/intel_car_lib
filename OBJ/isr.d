@@ -40,5 +40,15 @@
 ..\obj\isr.o: ..\HARDWARE\inc\infrared_remote.h
 ..\obj\isr.o: ..\SYSTEM\delay\delay.h
 ..\obj\isr.o: ..\HARDWARE\inc\parameter.h
-..\obj\isr.o: ..\HARDWARE\inc\ultrasonic.h
+..\obj\isr.o: ..\HARDWARE\inc\car_system.h
+..\obj\isr.o: ..\HARDWARE\inc\wheel.h
 ..\obj\isr.o: C:\Program Files (x86)\MDK5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\obj\isr.o: ..\HARDWARE\inc\bsp.h
+..\obj\isr.o: ..\HARDWARE\inc\mpu6050.h
+..\obj\isr.o: ..\HARDWARE\inc\mpu6050_iic.h
+..\obj\isr.o: C:\Program Files (x86)\MDK5\ARM\ARMCC\Bin\..\include\math.h
+..\obj\isr.o: ..\HARDWARE\inc\ultrasonic.h
+..\obj\isr.o: ..\HARDWARE\inc\steering_engine.h
+..\obj\isr.o: ..\HARDWARE\inc\application.h
+..\obj\isr.o: ..\HARDWARE\inc\flow.h
+..\obj\isr.o: ..\HARDWARE\inc\car_system.h

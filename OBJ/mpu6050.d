@@ -38,7 +38,18 @@
 ..\obj\mpu6050.o: ..\FWLIB\inc\stm32f4xx_dcmi.h
 ..\obj\mpu6050.o: ..\FWLIB\inc\stm32f4xx_fsmc.h
 ..\obj\mpu6050.o: C:\Program Files (x86)\MDK5\ARM\ARMCC\Bin\..\include\stdbool.h
-..\obj\mpu6050.o: ..\HARDWARE\inc\flash.h
-..\obj\mpu6050.o: ..\HARDWARE\inc\mpu6050.h
 ..\obj\mpu6050.o: ..\SYSTEM\delay\delay.h
 ..\obj\mpu6050.o: C:\Program Files (x86)\MDK5\ARM\ARMCC\Bin\..\include\math.h
+..\obj\mpu6050.o: ..\HARDWARE\inc\flash.h
+..\obj\mpu6050.o: ..\HARDWARE\inc\car_system.h
+..\obj\mpu6050.o: ..\HARDWARE\inc\wheel.h
+..\obj\mpu6050.o: ..\HARDWARE\inc\bsp.h
+..\obj\mpu6050.o: ..\HARDWARE\inc\sfr.h
+..\obj\mpu6050.o: ..\HARDWARE\inc\isr.h
+..\obj\mpu6050.o: ..\HARDWARE\inc\infrared_remote.h
+..\obj\mpu6050.o: ..\HARDWARE\inc\parameter.h
+..\obj\mpu6050.o: ..\HARDWARE\inc\ultrasonic.h
+..\obj\mpu6050.o: ..\HARDWARE\inc\steering_engine.h
+..\obj\mpu6050.o: ..\HARDWARE\inc\application.h
+..\obj\mpu6050.o: ..\HARDWARE\inc\flow.h
+..\obj\mpu6050.o: ..\HARDWARE\inc\car_system.h

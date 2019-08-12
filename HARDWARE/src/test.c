@@ -1,14 +1,16 @@
 #include "test.h"
 
-void test(void)
+void dc_motor_test(void)
 {
 	dc_motor_action_advance();
 }
 
 void infrared_remote_test(void)
 {
+	struct Infrared_Remote *infra = &car.component.infrared_remote;
+	
 	infrared_remote_task();
-	switch(infrared_remote.key)
+	switch(infra->key)
 	{
 		case INFRARED_REMOTE_KEY_ADVANCE:
 			//dc_motor_action_brake();
@@ -55,7 +57,8 @@ void mpu6050_test(void)
 
 void flash_test(void)
 {
-	if(!mpu6050.get_offset_flag)
+	struct Mpu6050 *mpu = &car.component.mpu6050;
+	if(!mpu->get_offset_flag)
 	{
 		flash_data.float_data[FLASH_ADDR_MPU6050_GYROX_OFFSET]=(float)1;
 		flash_data.float_data[FLASH_ADDR_MPU6050_GYROY_OFFSET]=(float)2;
@@ -163,5 +166,17 @@ void steering_engine_test(void)
 		default:
 			break;		
 	}	
+}
+
+void test(void)
+{
+	steering_engine_test();
+	//dc_motor_test();
+	infrared_remote_test();
+	//mpu6050_test();
+	ultrasonic_test();
+	//systick_test();
+	//flow_switch();
+	//motion_control();
 }
 

@@ -1,10 +1,5 @@
 #include "mpu6050.h"
-#include "sys.h"
-#include "delay.h"
-#include <math.h>
-//#include "usart.h"   
-
-struct Mpu6050 mpu6050;
+#include "flash.h"
 
 //初始化MPU6050
 //返回值:0,成功
@@ -75,6 +70,7 @@ void IMUupdate(float gx, float gy, float gz, float ax, float ay, float az,\
 	float norm;
 	float vx, vy, vz;
 	float ex, ey, ez;
+	struct Mpu6050 *mpu = &car.component.mpu6050;
 	/*归一化测量值，加速度计和磁力计的单位是什么都无所谓，因为它们在此被作了归一化处理*/        
 	//normalise the measurements
 	norm = invSqrt(ax*ax + ay*ay + az*az);       
@@ -82,18 +78,18 @@ void IMUupdate(float gx, float gy, float gz, float ax, float ay, float az,\
 	ay = ay * norm;
 	az = az * norm;
 
-	vx = 2*(mpu6050.quaternion.q1*mpu6050.quaternion.q3 - mpu6050.quaternion.q0*mpu6050.quaternion.q2);
-	vy = 2*(mpu6050.quaternion.q0*mpu6050.quaternion.q1 + mpu6050.quaternion.q2*mpu6050.quaternion.q3);
-	vz = mpu6050.quaternion.q0*mpu6050.quaternion.q0 - mpu6050.quaternion.q1*mpu6050.quaternion.q1\
-		- mpu6050.quaternion.q2*mpu6050.quaternion.q2 + mpu6050.quaternion.q3*mpu6050.quaternion.q3;
+	vx = 2*(mpu->quaternion.q1*mpu->quaternion.q3 - mpu->quaternion.q0*mpu->quaternion.q2);
+	vy = 2*(mpu->quaternion.q0*mpu->quaternion.q1 + mpu->quaternion.q2*mpu->quaternion.q3);
+	vz = mpu->quaternion.q0*mpu->quaternion.q0 - mpu->quaternion.q1*mpu->quaternion.q1\
+		- mpu->quaternion.q2*mpu->quaternion.q2 + mpu->quaternion.q3*mpu->quaternion.q3;
   
-	mpu6050.attitude.ax = ax;
-	mpu6050.attitude.ay = ay;
-	mpu6050.attitude.az = az;
+	mpu->attitude.ax = ax;
+	mpu->attitude.ay = ay;
+	mpu->attitude.az = az;
 
-	mpu6050.attitude.vx = vx;
-	mpu6050.attitude.vy = vy;
-	mpu6050.attitude.vz = vz;
+	mpu->attitude.vx = vx;
+	mpu->attitude.vy = vy;
+	mpu->attitude.vz = vz;
 	
 	//现在把加速度的测量矢量和参考矢量做叉积，把磁场的测量矢量和参考矢量也做叉积。都拿来来修正陀螺。
 	// error is sum of cross product between reference direction of fields and direction measured by sensors
@@ -102,39 +98,39 @@ void IMUupdate(float gx, float gy, float gz, float ax, float ay, float az,\
 	ez = (ax*vy - ay*vx);
    
 	// integral error scaled integral gain
-	mpu6050.integral_error.exInt = mpu6050.integral_error.exInt + ex*Ki;
-	mpu6050.integral_error.eyInt = mpu6050.integral_error.eyInt + ey*Ki;
-	mpu6050.integral_error.ezInt = mpu6050.integral_error.ezInt + ez*Ki;
+	mpu->integral_error.exInt = mpu->integral_error.exInt + ex*Ki;
+	mpu->integral_error.eyInt = mpu->integral_error.eyInt + ey*Ki;
+	mpu->integral_error.ezInt = mpu->integral_error.ezInt + ez*Ki;
 	
 	// adjusted gyroscope measurements
-	gx = gx + Kp*ex + mpu6050.integral_error.exInt;
-	gy = gy + Kp*ey + mpu6050.integral_error.eyInt;
-	gz = gz + Kp*ez + mpu6050.integral_error.ezInt;
+	gx = gx + Kp*ex + mpu->integral_error.exInt;
+	gy = gy + Kp*ey + mpu->integral_error.eyInt;
+	gz = gz + Kp*ez + mpu->integral_error.ezInt;
 	
 
 	// integrate quaternion rate and normalise，四元数更新算法，一阶龙格-库塔法
-	mpu6050.quaternion.q0 = mpu6050.quaternion.q0 + (-mpu6050.quaternion.q1*gx - mpu6050.quaternion.q2*gy - mpu6050.quaternion.q3*gz)*halfT;
-	mpu6050.quaternion.q1 = mpu6050.quaternion.q1 + (mpu6050.quaternion.q0*gx + mpu6050.quaternion.q2*gz - mpu6050.quaternion.q3*gy)*halfT;
-	mpu6050.quaternion.q2 = mpu6050.quaternion.q2 + (mpu6050.quaternion.q0*gy - mpu6050.quaternion.q1*gz + mpu6050.quaternion.q3*gx)*halfT;
-	mpu6050.quaternion.q3 = mpu6050.quaternion.q3 + (mpu6050.quaternion.q0*gz + mpu6050.quaternion.q1*gy - mpu6050.quaternion.q2*gx)*halfT;  
+	mpu->quaternion.q0 = mpu->quaternion.q0 + (-mpu->quaternion.q1*gx - mpu->quaternion.q2*gy - mpu->quaternion.q3*gz)*halfT;
+	mpu->quaternion.q1 = mpu->quaternion.q1 + (mpu->quaternion.q0*gx + mpu->quaternion.q2*gz - mpu->quaternion.q3*gy)*halfT;
+	mpu->quaternion.q2 = mpu->quaternion.q2 + (mpu->quaternion.q0*gy - mpu->quaternion.q1*gz + mpu->quaternion.q3*gx)*halfT;
+	mpu->quaternion.q3 = mpu->quaternion.q3 + (mpu->quaternion.q0*gz + mpu->quaternion.q1*gy - mpu->quaternion.q2*gx)*halfT;  
 	
 	// normalise quaternion
-	norm = invSqrt(mpu6050.quaternion.q0*mpu6050.quaternion.q0 + mpu6050.quaternion.q1*mpu6050.quaternion.q1 \
-			+ mpu6050.quaternion.q2*mpu6050.quaternion.q2 + mpu6050.quaternion.q3*mpu6050.quaternion.q3);
-	mpu6050.quaternion.q0 = mpu6050.quaternion.q0 * norm;       //w
-	mpu6050.quaternion.q1 = mpu6050.quaternion.q1 * norm;       //x
-	mpu6050.quaternion.q2 = mpu6050.quaternion.q2 * norm;       //y
-	mpu6050.quaternion.q3 = mpu6050.quaternion.q3 * norm;       //z
+	norm = invSqrt(mpu->quaternion.q0*mpu->quaternion.q0 + mpu->quaternion.q1*mpu->quaternion.q1 \
+			+ mpu->quaternion.q2*mpu->quaternion.q2 + mpu->quaternion.q3*mpu->quaternion.q3);
+	mpu->quaternion.q0 = mpu->quaternion.q0 * norm;       //w
+	mpu->quaternion.q1 = mpu->quaternion.q1 * norm;       //x
+	mpu->quaternion.q2 = mpu->quaternion.q2 * norm;       //y
+	mpu->quaternion.q3 = mpu->quaternion.q3 * norm;       //z
         
     //sensor.attitude.roll = sensor.attitude.float_roll = -90+atan2(vx,vz) * RAD; //俯仰角，绕y轴转动	 
     //sensor.attitude.pitch = sensor.attitude.float_pitch =90-atan2(vx,vy)*RAD;
     //sensor.attitude.float_yaw = atan2(2*q1*q2 + 2*q0*q3,-2*q2*q2 - 2*q3*q3 + 1) * RAD;  //偏航角，绕z轴转动
-	mpu6050.attitude.roll = mpu6050.attitude.float_roll = -asin(vz) * RAD; //俯仰角，绕y轴转动	 
-    mpu6050.attitude.pitch = mpu6050.attitude.float_pitch =asin(vy)*RAD;
-    mpu6050.attitude.float_yaw = asin(vx) * RAD;  //偏航角，绕z轴转动
-    mpu6050.attitude.yaw  = 10.0f * mpu6050.attitude.float_yaw;
-	mpu6050.attitude.gyro_yaw = mpu6050.DMP_data.GYROz>>1;
-	mpu6050.attitude.gyro_roll=mpu6050.DMP_data.GYROy;
+	mpu->attitude.roll = mpu->attitude.float_roll = -asin(vz) * RAD; //俯仰角，绕y轴转动	 
+    mpu->attitude.pitch = mpu->attitude.float_pitch =asin(vy)*RAD;
+    mpu->attitude.float_yaw = asin(vx) * RAD;  //偏航角，绕z轴转动
+    mpu->attitude.yaw  = 10.0f * mpu->attitude.float_yaw;
+	mpu->attitude.gyro_yaw = mpu->DMP_data.GYROz>>1;
+	mpu->attitude.gyro_roll=mpu->DMP_data.GYROy;
 	
 }
 
@@ -142,61 +138,63 @@ void MPU6050_Data_Process(void)
 {
     static uint16_t j=0;  
     static int16_t last_GYROz=0;
-	mpu6050.DMP_data.ACCx=-((mpu6050.data_buff[2]<<8)+mpu6050.data_buff[3]);    //对应mpu6050的-accy
-	mpu6050.DMP_data.ACCy =((mpu6050.data_buff[4]<<8)+mpu6050.data_buff[5]);    //对应mpu6050的accz
-	mpu6050.DMP_data.ACCz =-((mpu6050.data_buff[0]<<8)+mpu6050.data_buff[1]);   //对应mpu6050的-accx
-	mpu6050.DMP_data.GYROx = -((mpu6050.data_buff[10]<<8)+mpu6050.data_buff[11]);//对应mpu6050的-gyroy	   
-	mpu6050.DMP_data.GYROy = ((mpu6050.data_buff[12]<<8)+mpu6050.data_buff[13]); //对应mpu6050的gyroz	
-	mpu6050.DMP_data.GYROz = -((mpu6050.data_buff[8]<<8)+mpu6050.data_buff[9]);  //对应mpu6050的-gyrox	
+	struct Mpu6050 *mpu = &car.component.mpu6050;
+	
+	mpu->DMP_data.ACCx=-((mpu->data_buff[2]<<8)+mpu->data_buff[3]);    //对应mpu6050的-accy
+	mpu->DMP_data.ACCy =((mpu->data_buff[4]<<8)+mpu->data_buff[5]);    //对应mpu6050的accz
+	mpu->DMP_data.ACCz =-((mpu->data_buff[0]<<8)+mpu->data_buff[1]);   //对应mpu6050的-accx
+	mpu->DMP_data.GYROx = -((mpu->data_buff[10]<<8)+mpu->data_buff[11]);//对应mpu6050的-gyroy	   
+	mpu->DMP_data.GYROy = ((mpu->data_buff[12]<<8)+mpu->data_buff[13]); //对应mpu6050的gyroz	
+	mpu->DMP_data.GYROz = -((mpu->data_buff[8]<<8)+mpu->data_buff[9]);  //对应mpu6050的-gyrox	
 	//单位转化成：弧度/s，0.000266=1/(Gyro_500_Scale_Factor * 57.3) 
-	mpu6050.DMP_data.gx=(mpu6050.DMP_data.GYROx-mpu6050.gyro_offset[MPU6050_GYROX_OFFSET]) * Gyro_500_Rad_Factor;	   
-	mpu6050.DMP_data.gy=(mpu6050.DMP_data.GYROy-mpu6050.gyro_offset[MPU6050_GYROY_OFFSET]) * Gyro_500_Rad_Factor;	   
-	mpu6050.DMP_data.gz=(mpu6050.DMP_data.GYROz-mpu6050.gyro_offset[MPU6050_GYROZ_OFFSET]) * Gyro_500_Rad_Factor;
+	mpu->DMP_data.gx=(mpu->DMP_data.GYROx-mpu->gyro_offset[MPU6050_GYROX_OFFSET]) * Gyro_500_Rad_Factor;	   
+	mpu->DMP_data.gy=(mpu->DMP_data.GYROy-mpu->gyro_offset[MPU6050_GYROY_OFFSET]) * Gyro_500_Rad_Factor;	   
+	mpu->DMP_data.gz=(mpu->DMP_data.GYROz-mpu->gyro_offset[MPU6050_GYROZ_OFFSET]) * Gyro_500_Rad_Factor;
 	
-	mpu6050.DMP_data.ax=(mpu6050.DMP_data.ACCx); 	
-	mpu6050.DMP_data.ay=(mpu6050.DMP_data.ACCy); 	   
-	mpu6050.DMP_data.az=(mpu6050.DMP_data.ACCz); 
+	mpu->DMP_data.ax=(mpu->DMP_data.ACCx); 	
+	mpu->DMP_data.ay=(mpu->DMP_data.ACCy); 	   
+	mpu->DMP_data.az=(mpu->DMP_data.ACCz); 
 	
-    if(mpu6050.get_offset_flag)
+    if(mpu->get_offset_flag)
     {        
-		IMUupdate(mpu6050.DMP_data.gx, mpu6050.DMP_data.gy, mpu6050.DMP_data.gz,\
-		         mpu6050.DMP_data.ax,  mpu6050.DMP_data.ay,  mpu6050.DMP_data.az,  1, 1 ,  1) ;
+		IMUupdate(mpu->DMP_data.gx, mpu->DMP_data.gy, mpu->DMP_data.gz,\
+		         mpu->DMP_data.ax,  mpu->DMP_data.ay,  mpu->DMP_data.az,  1, 1 ,  1) ;
        
     }
     else
     {  
 		//需在机器静止的情况下保存偏置
-        if((mpu6050.DMP_data.GYROz>last_GYROz-150)&&(mpu6050.DMP_data.GYROz<last_GYROz+150)\
-			&&(mpu6050.DMP_data.GYROz<300)&&(mpu6050.DMP_data.GYROz>-300)) 			
+        if((mpu->DMP_data.GYROz>last_GYROz-150)&&(mpu->DMP_data.GYROz<last_GYROz+150)\
+			&&(mpu->DMP_data.GYROz<300)&&(mpu->DMP_data.GYROz>-300)) 			
 		{
 			j++;
 		}
         else 
         {   
             j=0;        
-            mpu6050.gyro_offset[MPU6050_GYROX_OFFSET]=0; 
-            mpu6050.gyro_offset[MPU6050_GYROY_OFFSET]=0;
-            mpu6050.gyro_offset[MPU6050_GYROZ_OFFSET]=0;
+            mpu->gyro_offset[MPU6050_GYROX_OFFSET]=0; 
+            mpu->gyro_offset[MPU6050_GYROY_OFFSET]=0;
+            mpu->gyro_offset[MPU6050_GYROZ_OFFSET]=0;
         }   //once MPU6050_GYROz is not similar to last,  reset.  
         if((j>200)&&(j<=600)) 
         {    
-            mpu6050.gyro_offset[MPU6050_GYROX_OFFSET] += (float)mpu6050.DMP_data.GYROx;	
-            mpu6050.gyro_offset[MPU6050_GYROY_OFFSET] += (float)mpu6050.DMP_data.GYROy;
-            mpu6050.gyro_offset[MPU6050_GYROZ_OFFSET] += (float)mpu6050.DMP_data.GYROz;
+            mpu->gyro_offset[MPU6050_GYROX_OFFSET] += (float)mpu->DMP_data.GYROx;	
+            mpu->gyro_offset[MPU6050_GYROY_OFFSET] += (float)mpu->DMP_data.GYROy;
+            mpu->gyro_offset[MPU6050_GYROZ_OFFSET] += (float)mpu->DMP_data.GYROz;
         }					  
-        last_GYROz=mpu6050.DMP_data.GYROz;
+        last_GYROz=mpu->DMP_data.GYROz;
         if(j>600)
         {
 
-            mpu6050.get_offset_flag=true; //if last for 4s,Get GYROzOffset successfully.  
+            mpu->get_offset_flag=true; //if last for 4s,Get GYROzOffset successfully.  
             
-            mpu6050.gyro_offset[MPU6050_GYROX_OFFSET]=mpu6050.gyro_offset[MPU6050_GYROX_OFFSET]/400.0f;
-            mpu6050.gyro_offset[MPU6050_GYROY_OFFSET]=mpu6050.gyro_offset[MPU6050_GYROY_OFFSET]/400.0f;
-            mpu6050.gyro_offset[MPU6050_GYROZ_OFFSET]=mpu6050.gyro_offset[MPU6050_GYROZ_OFFSET]/400.0f;
+            mpu->gyro_offset[MPU6050_GYROX_OFFSET]=mpu->gyro_offset[MPU6050_GYROX_OFFSET]/400.0f;
+            mpu->gyro_offset[MPU6050_GYROY_OFFSET]=mpu->gyro_offset[MPU6050_GYROY_OFFSET]/400.0f;
+            mpu->gyro_offset[MPU6050_GYROZ_OFFSET]=mpu->gyro_offset[MPU6050_GYROZ_OFFSET]/400.0f;
 
-			flash_data.float_data[FLASH_ADDR_MPU6050_GYROX_OFFSET] = mpu6050.gyro_offset[MPU6050_GYROX_OFFSET];
-			flash_data.float_data[FLASH_ADDR_MPU6050_GYROY_OFFSET] = mpu6050.gyro_offset[MPU6050_GYROY_OFFSET];
-			flash_data.float_data[FLASH_ADDR_MPU6050_GYROZ_OFFSET] = mpu6050.gyro_offset[MPU6050_GYROZ_OFFSET];
+			flash_data.float_data[FLASH_ADDR_MPU6050_GYROX_OFFSET] = mpu->gyro_offset[MPU6050_GYROX_OFFSET];
+			flash_data.float_data[FLASH_ADDR_MPU6050_GYROY_OFFSET] = mpu->gyro_offset[MPU6050_GYROY_OFFSET];
+			flash_data.float_data[FLASH_ADDR_MPU6050_GYROZ_OFFSET] = mpu->gyro_offset[MPU6050_GYROZ_OFFSET];
 			store_config_data();
 					
 //            MPU6050_GYROx_Offset_int=(int16_t)MPU6050_GYROx_Offset;
@@ -211,9 +209,10 @@ void MPU6050_Data_Process(void)
 
 void mpu6050_update(void)
 {
+	struct Mpu6050 *mpu = &car.component.mpu6050;
 	//uint32_t start_time = uwTick;
 	
-	MPU_Read_Len(MPU_ADDR,MPU_ACCEL_XOUTH_REG,14,mpu6050.data_buff);	//读取陀螺仪和加速度计数据
+	MPU_Read_Len(MPU_ADDR,MPU_ACCEL_XOUTH_REG,14,mpu->data_buff);	//读取陀螺仪和加速度计数据
 	//sensor.attitude.error_counter =0;
 	MPU6050_Data_Process();	
 }

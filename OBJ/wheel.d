@@ -44,3 +44,11 @@
 ..\obj\wheel.o: ..\SYSTEM\delay\delay.h
 ..\obj\wheel.o: ..\HARDWARE\inc\parameter.h
 ..\obj\wheel.o: ..\HARDWARE\inc\car_system.h
+..\obj\wheel.o: ..\HARDWARE\inc\mpu6050.h
+..\obj\wheel.o: ..\HARDWARE\inc\mpu6050_iic.h
+..\obj\wheel.o: C:\Program Files (x86)\MDK5\ARM\ARMCC\Bin\..\include\math.h
+..\obj\wheel.o: ..\HARDWARE\inc\ultrasonic.h
+..\obj\wheel.o: ..\HARDWARE\inc\steering_engine.h
+..\obj\wheel.o: ..\HARDWARE\inc\application.h
+..\obj\wheel.o: ..\HARDWARE\inc\flow.h
+..\obj\wheel.o: ..\HARDWARE\inc\car_system.h
