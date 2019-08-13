@@ -103,9 +103,9 @@ void IMUupdate(float gx, float gy, float gz, float ax, float ay, float az,\
 	mpu->integral_error.ezInt = mpu->integral_error.ezInt + ez*Ki;
 	
 	// adjusted gyroscope measurements
-	gx = gx + Kp*ex + mpu->integral_error.exInt;
-	gy = gy + Kp*ey + mpu->integral_error.eyInt;
-	gz = gz + Kp*ez + mpu->integral_error.ezInt;
+//	gx = gx + Kp*ex + mpu->integral_error.exInt;
+//	gy = gy + Kp*ey + mpu->integral_error.eyInt;
+//	gz = gz + Kp*ez + mpu->integral_error.ezInt;
 	
 
 	// integrate quaternion rate and normalise，四元数更新算法，一阶龙格-库塔法
@@ -140,13 +140,21 @@ void MPU6050_Data_Process(void)
     static uint16_t j=0;  
     static int16_t last_GYROz=0;
 	struct Mpu6050 *mpu = &car.component.mpu6050;
+//传过来的是有符号数	
+//	mpu->DMP_data.ACCx=-((mpu->data_buff[2]<<8)+mpu->data_buff[3]);    //对应mpu6050的-accy
+//	mpu->DMP_data.ACCy =((mpu->data_buff[4]<<8)+mpu->data_buff[5]);    //对应mpu6050的accz
+//	mpu->DMP_data.ACCz =-((mpu->data_buff[0]<<8)+mpu->data_buff[1]);   //对应mpu6050的-accx
+	mpu->DMP_data.ACCx=(mpu->data_buff[0]<<8)+mpu->data_buff[1];    //对应mpu6050的-accy
+	mpu->DMP_data.ACCy =(mpu->data_buff[2]<<8)+mpu->data_buff[3];    //对应mpu6050的accz
+	mpu->DMP_data.ACCz =-((mpu->data_buff[4]<<8)+mpu->data_buff[5]);   //对应mpu6050的-accx
+//	mpu->DMP_data.GYROx = -((mpu->data_buff[10]<<8)+mpu->data_buff[11]);//对应mpu6050的-gyroy	   
+//	mpu->DMP_data.GYROy = ((mpu->data_buff[12]<<8)+mpu->data_buff[13]); //对应mpu6050的gyroz	
+//	mpu->DMP_data.GYROz = -((mpu->data_buff[8]<<8)+mpu->data_buff[9]);  //对应mpu6050的-gyrox	
+	mpu->DMP_data.GYROx = (mpu->data_buff[8]<<8)+mpu->data_buff[9];//对应mpu6050的-gyroy	   
+	mpu->DMP_data.GYROy = ((mpu->data_buff[10]<<8)+mpu->data_buff[11]); //对应mpu6050的gyroz	
+	mpu->DMP_data.GYROz = -((mpu->data_buff[12]<<8)+mpu->data_buff[13]);  //对应mpu6050的-gyrox
 	
-	mpu->DMP_data.ACCx=-((mpu->data_buff[2]<<8)+mpu->data_buff[3]);    //对应mpu6050的-accy
-	mpu->DMP_data.ACCy =((mpu->data_buff[4]<<8)+mpu->data_buff[5]);    //对应mpu6050的accz
-	mpu->DMP_data.ACCz =-((mpu->data_buff[0]<<8)+mpu->data_buff[1]);   //对应mpu6050的-accx
-	mpu->DMP_data.GYROx = -((mpu->data_buff[10]<<8)+mpu->data_buff[11]);//对应mpu6050的-gyroy	   
-	mpu->DMP_data.GYROy = ((mpu->data_buff[12]<<8)+mpu->data_buff[13]); //对应mpu6050的gyroz	
-	mpu->DMP_data.GYROz = -((mpu->data_buff[8]<<8)+mpu->data_buff[9]);  //对应mpu6050的-gyrox	
+	mpu->target_angle+=(float)((mpu->DMP_data.GYROz-mpu->gyro_offset[MPU6050_GYROZ_OFFSET])*0.00003051758);
 	//单位转化成：弧度/s，0.000266=1/(Gyro_500_Scale_Factor * 57.3) 
 	mpu->DMP_data.gx=(mpu->DMP_data.GYROx-mpu->gyro_offset[MPU6050_GYROX_OFFSET]) * Gyro_500_Rad_Factor;	   
 	mpu->DMP_data.gy=(mpu->DMP_data.GYROy-mpu->gyro_offset[MPU6050_GYROY_OFFSET]) * Gyro_500_Rad_Factor;	   

@@ -3,9 +3,9 @@
 <title>Static Call Graph - [..\OBJ\Robot.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\Robot.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Mon Aug 12 23:22:16 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Tue Aug 13 23:53:34 2019
 <BR><P>
-<H3>Maximum Stack Usage =        296 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        312 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 __rt_entry_main &rArr; main &rArr; update_sensor_data &rArr; mpu6050_task &rArr; mpu6050_update &rArr; MPU6050_Data_Process &rArr; IMUupdate &rArr; __hardfp_asin &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 <P>
@@ -246,7 +246,7 @@ Global Symbols
 <P><STRONG><a name="[135]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[78]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 296 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 312 + Unknown Stack Size
 <LI>Call Chain = __rt_entry_main &rArr; main &rArr; update_sensor_data &rArr; mpu6050_task &rArr; mpu6050_update &rArr; MPU6050_Data_Process &rArr; IMUupdate &rArr; __hardfp_asin &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -626,32 +626,32 @@ Global Symbols
 <P><STRONG><a name="[8d]"></a>GPIO_Init</STRONG> (Thumb, 144 bytes, Stack size 20 bytes, stm32f4xx_gpio.o(i.GPIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = GPIO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_timer_init
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_gpio_init
-<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;steering_engine_pwm_init
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_right_pwm_init
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_left_pwm_init
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_init
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;infrared_remote_init
-<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;car_gpio_init
+<BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_timer_init
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_gpio_init
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;steering_engine_pwm_init
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_right_pwm_init
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_left_pwm_init
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_init
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;infrared_remote_init
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;car_gpio_init
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Init
 </UL>
 
-<P><STRONG><a name="[db]"></a>GPIO_PinAFConfig</STRONG> (Thumb, 70 bytes, Stack size 20 bytes, stm32f4xx_gpio.o(i.GPIO_PinAFConfig))
+<P><STRONG><a name="[dd]"></a>GPIO_PinAFConfig</STRONG> (Thumb, 70 bytes, Stack size 20 bytes, stm32f4xx_gpio.o(i.GPIO_PinAFConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = GPIO_PinAFConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_timer_init
-<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;steering_engine_pwm_init
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_right_pwm_init
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_left_pwm_init
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;infrared_remote_init
+<BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_timer_init
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;steering_engine_pwm_init
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_right_pwm_init
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_left_pwm_init
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;infrared_remote_init
 </UL>
 
-<P><STRONG><a name="[c2]"></a>GPIO_ResetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(i.GPIO_ResetBits))
-<BR><BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_gpio_init
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_init
-<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;car_init
-<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;car_gpio_init
+<P><STRONG><a name="[c5]"></a>GPIO_ResetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(i.GPIO_ResetBits))
+<BR><BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_gpio_init
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_init
+<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;car_init
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;car_gpio_init
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dc_motor_action_turn_right
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dc_motor_action_turn_left
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dc_motor_action_stop
@@ -660,7 +660,7 @@ Global Symbols
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;generate_ultrasonic_trigger_pulse
 </UL>
 
-<P><STRONG><a name="[cc]"></a>GPIO_SetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(i.GPIO_SetBits))
+<P><STRONG><a name="[cf]"></a>GPIO_SetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(i.GPIO_SetBits))
 <BR><BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dc_motor_action_turn_right
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dc_motor_action_turn_left
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dc_motor_action_back
@@ -685,7 +685,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHB1PeriphClockCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu6050_Init
+<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu6050_Init
 </UL>
 
 <P><STRONG><a name="[8e]"></a>IIC_NAck</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, mpu6050_iic.o(i.IIC_NAck))
@@ -749,7 +749,7 @@ Global Symbols
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU_Read_Byte
 </UL>
 
-<P><STRONG><a name="[94]"></a>IMUupdate</STRONG> (Thumb, 950 bytes, Stack size 96 bytes, mpu6050.o(i.IMUupdate))
+<P><STRONG><a name="[94]"></a>IMUupdate</STRONG> (Thumb, 858 bytes, Stack size 96 bytes, mpu6050.o(i.IMUupdate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 256<LI>Call Chain = IMUupdate &rArr; __hardfp_asin &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invSqrt
@@ -762,11 +762,14 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6050_Data_Process
 </UL>
 
-<P><STRONG><a name="[9b]"></a>MPU6050_Data_Process</STRONG> (Thumb, 588 bytes, Stack size 8 bytes, mpu6050.o(i.MPU6050_Data_Process))
-<BR><BR>[Stack]<UL><LI>Max Depth = 264<LI>Call Chain = MPU6050_Data_Process &rArr; IMUupdate &rArr; __hardfp_asin &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
+<P><STRONG><a name="[9b]"></a>MPU6050_Data_Process</STRONG> (Thumb, 662 bytes, Stack size 24 bytes, mpu6050.o(i.MPU6050_Data_Process))
+<BR><BR>[Stack]<UL><LI>Max Depth = 280<LI>Call Chain = MPU6050_Data_Process &rArr; IMUupdate &rArr; __hardfp_asin &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;store_config_data
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IMUupdate
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 </UL>
 <BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu6050_update
 </UL>
@@ -780,7 +783,7 @@ Global Symbols
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Send_Byte
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Read_Byte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu6050_Init
+<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu6050_Init
 </UL>
 
 <P><STRONG><a name="[9e]"></a>MPU_Read_Len</STRONG> (Thumb, 116 bytes, Stack size 24 bytes, mpu6050.o(i.MPU_Read_Len))
@@ -800,7 +803,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU_Write_Byte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu6050_Init
+<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu6050_Init
 </UL>
 
 <P><STRONG><a name="[a1]"></a>MPU_Set_Gyro_Fsr</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, mpu6050.o(i.MPU_Set_Gyro_Fsr))
@@ -808,7 +811,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU_Write_Byte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu6050_Init
+<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu6050_Init
 </UL>
 
 <P><STRONG><a name="[a2]"></a>MPU_Set_LPF</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, mpu6050.o(i.MPU_Set_LPF))
@@ -825,7 +828,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU_Write_Byte
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU_Set_LPF
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu6050_Init
+<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu6050_Init
 </UL>
 
 <P><STRONG><a name="[a0]"></a>MPU_Write_Byte</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, mpu6050.o(i.MPU_Write_Byte))
@@ -836,7 +839,7 @@ Global Symbols
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Start
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Send_Byte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu6050_Init
+<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu6050_Init
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU_Set_Rate
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU_Set_LPF
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU_Set_Gyro_Fsr
@@ -849,15 +852,15 @@ Global Symbols
 <P><STRONG><a name="[3]"></a>NMI_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.NMI_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f40_41xxx.o(RESET)
 </UL>
-<P><STRONG><a name="[df]"></a>NVIC_Init</STRONG> (Thumb, 106 bytes, Stack size 16 bytes, misc.o(i.NVIC_Init))
+<P><STRONG><a name="[e1]"></a>NVIC_Init</STRONG> (Thumb, 106 bytes, Stack size 16 bytes, misc.o(i.NVIC_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = NVIC_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_timer_init
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sys_time_init
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;infrared_remote_init
+<BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_timer_init
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sys_time_init
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;infrared_remote_init
 </UL>
 
-<P><STRONG><a name="[e2]"></a>NVIC_PriorityGroupConfig</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, misc.o(i.NVIC_PriorityGroupConfig))
+<P><STRONG><a name="[e4]"></a>NVIC_PriorityGroupConfig</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, misc.o(i.NVIC_PriorityGroupConfig))
 <BR><BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -865,34 +868,34 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f40_41xxx.o(RESET)
 </UL>
 <P><STRONG><a name="[8c]"></a>RCC_AHB1PeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(i.RCC_AHB1PeriphClockCmd))
-<BR><BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_timer_init
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_gpio_init
-<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;steering_engine_pwm_init
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_right_pwm_init
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_left_pwm_init
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_init
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;infrared_remote_init
-<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;car_gpio_init
+<BR><BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_timer_init
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_gpio_init
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;steering_engine_pwm_init
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_right_pwm_init
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_left_pwm_init
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_init
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;infrared_remote_init
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;car_gpio_init
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Init
 </UL>
 
 <P><STRONG><a name="[f5]"></a>RCC_APB1PeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(i.RCC_APB1PeriphClockCmd))
-<BR><BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_timer_init
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sys_time_init
-<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;steering_engine_pwm_init
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_right_pwm_init
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_left_pwm_init
+<BR><BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_timer_init
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sys_time_init
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;steering_engine_pwm_init
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_right_pwm_init
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_left_pwm_init
 </UL>
 
-<P><STRONG><a name="[da]"></a>RCC_APB2PeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(i.RCC_APB2PeriphClockCmd))
-<BR><BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;infrared_remote_init
+<P><STRONG><a name="[dc]"></a>RCC_APB2PeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(i.RCC_APB2PeriphClockCmd))
+<BR><BR>[Called By]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;infrared_remote_init
 </UL>
 
 <P><STRONG><a name="[8]"></a>SVC_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.SVC_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f40_41xxx.o(RESET)
 </UL>
-<P><STRONG><a name="[ce]"></a>SysTick_CLKSourceConfig</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, misc.o(i.SysTick_CLKSourceConfig))
-<BR><BR>[Called By]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_init
+<P><STRONG><a name="[d1]"></a>SysTick_CLKSourceConfig</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, misc.o(i.SysTick_CLKSourceConfig))
+<BR><BR>[Called By]<UL><LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_init
 </UL>
 
 <P><STRONG><a name="[b]"></a>SysTick_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.SysTick_Handler))
@@ -945,9 +948,9 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f40_41xxx.o(RESET)
 </UL>
 <P><STRONG><a name="[fa]"></a>TIM_ARRPreloadConfig</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_ARRPreloadConfig))
-<BR><BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;steering_engine_pwm_init
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_right_pwm_init
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_left_pwm_init
+<BR><BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;steering_engine_pwm_init
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_right_pwm_init
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_left_pwm_init
 </UL>
 
 <P><STRONG><a name="[a9]"></a>TIM_ClearITPendingBit</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_ClearITPendingBit))
@@ -957,13 +960,13 @@ Global Symbols
 <LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM1_CC_IRQHandler
 </UL>
 
-<P><STRONG><a name="[de]"></a>TIM_Cmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_Cmd))
-<BR><BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_timer_init
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sys_time_init
-<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;steering_engine_pwm_init
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_right_pwm_init
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_left_pwm_init
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;infrared_remote_init
+<P><STRONG><a name="[e0]"></a>TIM_Cmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_Cmd))
+<BR><BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_timer_init
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sys_time_init
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;steering_engine_pwm_init
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_right_pwm_init
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_left_pwm_init
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;infrared_remote_init
 </UL>
 
 <P><STRONG><a name="[a8]"></a>TIM_GetCapture1</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_GetCapture1))
@@ -992,20 +995,20 @@ Global Symbols
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC2Prescaler
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC1Prescaler
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_timer_init
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;infrared_remote_init
+<BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_timer_init
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;infrared_remote_init
 </UL>
 
-<P><STRONG><a name="[dd]"></a>TIM_ITConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_ITConfig))
-<BR><BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_timer_init
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sys_time_init
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;infrared_remote_init
+<P><STRONG><a name="[df]"></a>TIM_ITConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_ITConfig))
+<BR><BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_timer_init
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sys_time_init
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;infrared_remote_init
 </UL>
 
 <P><STRONG><a name="[fb]"></a>TIM_OC1Init</STRONG> (Thumb, 114 bytes, Stack size 16 bytes, stm32f4xx_tim.o(i.TIM_OC1Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = TIM_OC1Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_right_pwm_init
+<BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_right_pwm_init
 </UL>
 
 <P><STRONG><a name="[a6]"></a>TIM_OC1PolarityConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_OC1PolarityConfig))
@@ -1015,57 +1018,57 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[fd]"></a>TIM_OC1PreloadConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_OC1PreloadConfig))
-<BR><BR>[Called By]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_right_pwm_init
+<BR><BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_right_pwm_init
 </UL>
 
 <P><STRONG><a name="[fc]"></a>TIM_OC2Init</STRONG> (Thumb, 154 bytes, Stack size 16 bytes, stm32f4xx_tim.o(i.TIM_OC2Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = TIM_OC2Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;steering_engine_pwm_init
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_right_pwm_init
+<BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;steering_engine_pwm_init
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_right_pwm_init
 </UL>
 
 <P><STRONG><a name="[fe]"></a>TIM_OC2PreloadConfig</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_OC2PreloadConfig))
-<BR><BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;steering_engine_pwm_init
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_right_pwm_init
+<BR><BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;steering_engine_pwm_init
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_right_pwm_init
 </UL>
 
 <P><STRONG><a name="[f6]"></a>TIM_OC3Init</STRONG> (Thumb, 150 bytes, Stack size 16 bytes, stm32f4xx_tim.o(i.TIM_OC3Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = TIM_OC3Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_left_pwm_init
+<BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_left_pwm_init
 </UL>
 
 <P><STRONG><a name="[f8]"></a>TIM_OC3PreloadConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_OC3PreloadConfig))
-<BR><BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_left_pwm_init
+<BR><BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_left_pwm_init
 </UL>
 
 <P><STRONG><a name="[f7]"></a>TIM_OC4Init</STRONG> (Thumb, 112 bytes, Stack size 16 bytes, stm32f4xx_tim.o(i.TIM_OC4Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = TIM_OC4Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_left_pwm_init
+<BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_left_pwm_init
 </UL>
 
 <P><STRONG><a name="[f9]"></a>TIM_OC4PreloadConfig</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_OC4PreloadConfig))
-<BR><BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_left_pwm_init
+<BR><BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_left_pwm_init
 </UL>
 
 <P><STRONG><a name="[103]"></a>TIM_SetCompare1</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_SetCompare1))
-<BR><BR>[Called By]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_up_pwm
+<BR><BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_up_pwm
 </UL>
 
-<P><STRONG><a name="[eb]"></a>TIM_SetCompare2</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_SetCompare2))
+<P><STRONG><a name="[ed]"></a>TIM_SetCompare2</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_SetCompare2))
 <BR><BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_down_pwm
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_down_pwm
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;steering_engine_action_turn_fix__angle
 </UL>
 
 <P><STRONG><a name="[102]"></a>TIM_SetCompare3</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_SetCompare3))
-<BR><BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_up_pwm
+<BR><BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_up_pwm
 </UL>
 
 <P><STRONG><a name="[101]"></a>TIM_SetCompare4</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_SetCompare4))
-<BR><BR>[Called By]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_down_pwm
+<BR><BR>[Called By]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_down_pwm
 </UL>
 
 <P><STRONG><a name="[a7]"></a>TIM_SetCounter</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_SetCounter))
@@ -1089,13 +1092,13 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICInit
 </UL>
 
-<P><STRONG><a name="[dc]"></a>TIM_TimeBaseInit</STRONG> (Thumb, 104 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_TimeBaseInit))
-<BR><BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_timer_init
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sys_time_init
-<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;steering_engine_pwm_init
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_right_pwm_init
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_left_pwm_init
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;infrared_remote_init
+<P><STRONG><a name="[de]"></a>TIM_TimeBaseInit</STRONG> (Thumb, 104 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_TimeBaseInit))
+<BR><BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_timer_init
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sys_time_init
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;steering_engine_pwm_init
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_right_pwm_init
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_left_pwm_init
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;infrared_remote_init
 </UL>
 
 <P><STRONG><a name="[7]"></a>UsageFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.UsageFault_Handler))
@@ -1161,46 +1164,51 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
 </UL>
 
-<P><STRONG><a name="[d4]"></a>auto_flow_process</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, flow.o(i.auto_flow_process))
-<BR><BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_process
+<P><STRONG><a name="[bf]"></a>auto_flow_process</STRONG> (Thumb, 564 bytes, Stack size 16 bytes, flow.o(i.auto_flow_process))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = auto_flow_process
+</UL>
+<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_operation
+<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_steering_engine_angle
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_process
 </UL>
 
-<P><STRONG><a name="[bf]"></a>auto_flow_switch</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, flow.o(i.auto_flow_switch))
+<P><STRONG><a name="[c2]"></a>auto_flow_switch</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, flow.o(i.auto_flow_switch))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = auto_flow_switch &rArr; flow_switch_to
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_switch_to
+<BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_switch_to
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_switch
+<BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_switch
 </UL>
 
-<P><STRONG><a name="[c1]"></a>car_gpio_init</STRONG> (Thumb, 172 bytes, Stack size 32 bytes, gpio.o(i.car_gpio_init))
+<P><STRONG><a name="[c4]"></a>car_gpio_init</STRONG> (Thumb, 172 bytes, Stack size 32 bytes, gpio.o(i.car_gpio_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = car_gpio_init &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<BR>[Calls]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHB1PeriphClockCmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[c3]"></a>car_init</STRONG> (Thumb, 212 bytes, Stack size 8 bytes, car_system.o(i.car_init))
+<P><STRONG><a name="[c6]"></a>car_init</STRONG> (Thumb, 212 bytes, Stack size 8 bytes, car_system.o(i.car_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = car_init &rArr; motion_init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
-<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motion_init
-<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_flow_map
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_up_pwm
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_down_pwm
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_up_pwm
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_down_pwm
+<BR>[Calls]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motion_init
+<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_flow_map
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_up_pwm
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_down_pwm
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_up_pwm
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_down_pwm
 </UL>
 <BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ca]"></a>communication_task</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, application.o(i.communication_task))
+<P><STRONG><a name="[cd]"></a>communication_task</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, application.o(i.communication_task))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = communication_task &rArr; infrared_remote_task &rArr; infrared_remote_scan
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;infrared_remote_task
+<BR>[Calls]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;infrared_remote_task
 </UL>
 <BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1208,76 +1216,76 @@ Global Symbols
 <P><STRONG><a name="[65]"></a>dc_motor_action_advance</STRONG> (Thumb, 142 bytes, Stack size 8 bytes, wheel.o(i.dc_motor_action_advance))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = dc_motor_action_advance &rArr; set_dc_motor_right_up_pwm
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_up_pwm
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_down_pwm
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_up_pwm
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_down_pwm
+<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_up_pwm
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_down_pwm
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_up_pwm
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_down_pwm
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> wheel.o(i.init_dc_motor)
 </UL>
 <P><STRONG><a name="[66]"></a>dc_motor_action_back</STRONG> (Thumb, 142 bytes, Stack size 8 bytes, wheel.o(i.dc_motor_action_back))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = dc_motor_action_back &rArr; set_dc_motor_right_up_pwm
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_up_pwm
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_down_pwm
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_up_pwm
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_down_pwm
+<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_up_pwm
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_down_pwm
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_up_pwm
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_down_pwm
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> wheel.o(i.init_dc_motor)
 </UL>
 <P><STRONG><a name="[69]"></a>dc_motor_action_brake</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, wheel.o(i.dc_motor_action_brake))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = dc_motor_action_brake &rArr; set_dc_motor_right_up_pwm
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_up_pwm
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_down_pwm
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_up_pwm
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_down_pwm
+<BR>[Calls]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_up_pwm
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_down_pwm
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_up_pwm
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_down_pwm
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> wheel.o(i.init_dc_motor)
 </UL>
 <P><STRONG><a name="[6a]"></a>dc_motor_action_stop</STRONG> (Thumb, 134 bytes, Stack size 8 bytes, wheel.o(i.dc_motor_action_stop))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = dc_motor_action_stop &rArr; set_dc_motor_right_up_pwm
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_up_pwm
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_down_pwm
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_up_pwm
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_down_pwm
+<BR>[Calls]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_up_pwm
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_down_pwm
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_up_pwm
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_down_pwm
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> wheel.o(i.init_dc_motor)
 </UL>
 <P><STRONG><a name="[67]"></a>dc_motor_action_turn_left</STRONG> (Thumb, 138 bytes, Stack size 8 bytes, wheel.o(i.dc_motor_action_turn_left))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = dc_motor_action_turn_left &rArr; set_dc_motor_right_up_pwm
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_up_pwm
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_down_pwm
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_up_pwm
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_down_pwm
+<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_up_pwm
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_down_pwm
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_up_pwm
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_down_pwm
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> wheel.o(i.init_dc_motor)
 </UL>
 <P><STRONG><a name="[68]"></a>dc_motor_action_turn_right</STRONG> (Thumb, 138 bytes, Stack size 8 bytes, wheel.o(i.dc_motor_action_turn_right))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = dc_motor_action_turn_right &rArr; set_dc_motor_right_up_pwm
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_up_pwm
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_down_pwm
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_up_pwm
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_down_pwm
+<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_up_pwm
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_right_down_pwm
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_up_pwm
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_left_down_pwm
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> wheel.o(i.init_dc_motor)
 </UL>
 <P><STRONG><a name="[f1]"></a>dc_motor_control</STRONG> (Thumb, 32 bytes, Stack size 16 bytes, application.o(i.dc_motor_control))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = dc_motor_control
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motion_control
+<BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motion_control
 </UL>
 
 <P><STRONG><a name="[60]"></a>dc_motor_op_advance</STRONG> (Thumb, 80 bytes, Stack size 0 bytes, wheel.o(i.dc_motor_op_advance))
@@ -1295,20 +1303,20 @@ Global Symbols
 <P><STRONG><a name="[63]"></a>dc_motor_op_turn_right</STRONG> (Thumb, 80 bytes, Stack size 0 bytes, wheel.o(i.dc_motor_op_turn_right))
 <BR>[Address Reference Count : 1]<UL><LI> wheel.o(i.init_dc_motor)
 </UL>
-<P><STRONG><a name="[cd]"></a>delay_init</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, delay.o(i.delay_init))
+<P><STRONG><a name="[d0]"></a>delay_init</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, delay.o(i.delay_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = delay_init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_CLKSourceConfig
+<BR>[Calls]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_CLKSourceConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[cf]"></a>delay_ms</STRONG> (Thumb, 56 bytes, Stack size 16 bytes, delay.o(i.delay_ms))
+<P><STRONG><a name="[d2]"></a>delay_ms</STRONG> (Thumb, 56 bytes, Stack size 16 bytes, delay.o(i.delay_ms))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = delay_ms
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_xms
+<BR>[Calls]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_xms
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu6050_Init
+<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu6050_Init
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1322,8 +1330,8 @@ Global Symbols
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Read_Byte
 </UL>
 
-<P><STRONG><a name="[d0]"></a>delay_xms</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, delay.o(i.delay_xms))
-<BR><BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<P><STRONG><a name="[d3]"></a>delay_xms</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, delay.o(i.delay_xms))
+<BR><BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 </UL>
 
 <P><STRONG><a name="[bb]"></a>fabs</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, fabs.o(i.fabs))
@@ -1332,169 +1340,169 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
 </UL>
 
-<P><STRONG><a name="[d1]"></a>flow_process</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, flow.o(i.flow_process))
+<P><STRONG><a name="[d4]"></a>flow_process</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, flow.o(i.flow_process))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = flow_process &rArr; manual_flow_process
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;manual_flow_process
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_flow_process
-<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;auto_flow_process
+<BR>[Calls]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;manual_flow_process
+<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_flow_process
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;auto_flow_process
 </UL>
 <BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[d5]"></a>flow_switch</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, flow.o(i.flow_switch))
+<P><STRONG><a name="[d7]"></a>flow_switch</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, flow.o(i.flow_switch))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = flow_switch &rArr; manual_flow_switch &rArr; flow_switch_to
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;manual_flow_switch
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_flow_switch
-<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;auto_flow_switch
+<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;manual_flow_switch
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_flow_switch
+<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;auto_flow_switch
 </UL>
 <BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[c0]"></a>flow_switch_to</STRONG> (Thumb, 92 bytes, Stack size 16 bytes, flow.o(i.flow_switch_to))
+<P><STRONG><a name="[c3]"></a>flow_switch_to</STRONG> (Thumb, 92 bytes, Stack size 16 bytes, flow.o(i.flow_switch_to))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = flow_switch_to
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_flow_from_type
+<BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_flow_from_type
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;manual_flow_switch
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_flow_switch
-<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;auto_flow_switch
+<BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;manual_flow_switch
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_flow_switch
+<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;auto_flow_switch
 </UL>
 
 <P><STRONG><a name="[aa]"></a>generate_ultrasonic_trigger_pulse</STRONG> (Thumb, 74 bytes, Stack size 8 bytes, ultrasonic.o(i.generate_ultrasonic_trigger_pulse))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = generate_ultrasonic_trigger_pulse
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC1PolarityConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM4_IRQHandler
 </UL>
 
-<P><STRONG><a name="[ef]"></a>get_steering_engine_angle</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, steering_engine.o(i.get_steering_engine_angle))
-<BR><BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;manual_flow_process
+<P><STRONG><a name="[f0]"></a>get_steering_engine_angle</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, steering_engine.o(i.get_steering_engine_angle))
+<BR><BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;manual_flow_process
 </UL>
 
-<P><STRONG><a name="[d9]"></a>infrared_remote_init</STRONG> (Thumb, 218 bytes, Stack size 40 bytes, tim.o(i.infrared_remote_init))
+<P><STRONG><a name="[db]"></a>infrared_remote_init</STRONG> (Thumb, 218 bytes, Stack size 40 bytes, tim.o(i.infrared_remote_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = infrared_remote_init &rArr; TIM_ICInit &rArr; TI4_Config
 </UL>
-<BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
+<BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
+<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHB1PeriphClockCmd
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ITConfig
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ITConfig
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICInit
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e0]"></a>infrared_remote_scan</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, infrared_remote.o(i.infrared_remote_scan))
+<P><STRONG><a name="[e2]"></a>infrared_remote_scan</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, infrared_remote.o(i.infrared_remote_scan))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = infrared_remote_scan
 </UL>
-<BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;infrared_remote_task
+<BR>[Called By]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;infrared_remote_task
 </UL>
 
-<P><STRONG><a name="[cb]"></a>infrared_remote_task</STRONG> (Thumb, 310 bytes, Stack size 12 bytes, infrared_remote.o(i.infrared_remote_task))
+<P><STRONG><a name="[ce]"></a>infrared_remote_task</STRONG> (Thumb, 304 bytes, Stack size 12 bytes, infrared_remote.o(i.infrared_remote_task))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = infrared_remote_task &rArr; infrared_remote_scan
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;infrared_remote_scan
+<BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;infrared_remote_scan
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;communication_task
+<BR>[Called By]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;communication_task
 </UL>
 
 <P><STRONG><a name="[f3]"></a>init_dc_motor</STRONG> (Thumb, 52 bytes, Stack size 0 bytes, wheel.o(i.init_dc_motor))
-<BR><BR>[Called By]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motion_init
+<BR><BR>[Called By]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motion_init
 </UL>
 
-<P><STRONG><a name="[c4]"></a>init_flow_map</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, flow.o(i.init_flow_map))
-<BR><BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;car_init
+<P><STRONG><a name="[c7]"></a>init_flow_map</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, flow.o(i.init_flow_map))
+<BR><BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;car_init
 </UL>
 
-<P><STRONG><a name="[d2]"></a>init_flow_process</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, flow.o(i.init_flow_process))
-<BR><BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_process
+<P><STRONG><a name="[d5]"></a>init_flow_process</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, flow.o(i.init_flow_process))
+<BR><BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_process
 </UL>
 
-<P><STRONG><a name="[d6]"></a>init_flow_switch</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, flow.o(i.init_flow_switch))
+<P><STRONG><a name="[d8]"></a>init_flow_switch</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, flow.o(i.init_flow_switch))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = init_flow_switch &rArr; flow_switch_to
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_switch_to
+<BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_switch_to
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_switch
+<BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_switch
 </UL>
 
 <P><STRONG><a name="[f4]"></a>init_steering_engine</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, steering_engine.o(i.init_steering_engine))
-<BR><BR>[Called By]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motion_init
+<BR><BR>[Called By]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motion_init
 </UL>
 
 <P><STRONG><a name="[95]"></a>invSqrt</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, mpu6050.o(i.invSqrt))
 <BR><BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IMUupdate
 </UL>
 
-<P><STRONG><a name="[e1]"></a>led_init</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, gpio.o(i.led_init))
+<P><STRONG><a name="[e3]"></a>led_init</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, gpio.o(i.led_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = led_init &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<BR>[Calls]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHB1PeriphClockCmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e7]"></a>load_flash_data</STRONG> (Thumb, 106 bytes, Stack size 0 bytes, flash.o(i.load_flash_data))
+<P><STRONG><a name="[e9]"></a>load_flash_data</STRONG> (Thumb, 106 bytes, Stack size 0 bytes, flash.o(i.load_flash_data))
 <BR><BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[79]"></a>main</STRONG> (Thumb, 228 bytes, Stack size 8 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 296<LI>Call Chain = main &rArr; update_sensor_data &rArr; mpu6050_task &rArr; mpu6050_update &rArr; MPU6050_Data_Process &rArr; IMUupdate &rArr; __hardfp_asin &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
+<BR><BR>[Stack]<UL><LI>Max Depth = 312<LI>Call Chain = main &rArr; update_sensor_data &rArr; mpu6050_task &rArr; mpu6050_update &rArr; MPU6050_Data_Process &rArr; IMUupdate &rArr; __hardfp_asin &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_sensor_data
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_timer_init
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_gpio_init
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sys_time_init
-<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;steering_engine_pwm_init
-<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu6050_Init
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_right_pwm_init
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_left_pwm_init
-<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motion_control
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;load_flash_data
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_init
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;infrared_remote_init
-<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_switch
-<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_process
-<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_init
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;communication_task
-<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;car_init
-<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;car_gpio_init
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCompare2
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_PriorityGroupConfig
+<BR>[Calls]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_sensor_data
+<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_timer_init
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_gpio_init
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sys_time_init
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;steering_engine_pwm_init
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu6050_Init
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_right_pwm_init
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_left_pwm_init
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motion_control
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;load_flash_data
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_init
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;infrared_remote_init
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_switch
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_process
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_init
+<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;communication_task
+<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;car_init
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;car_gpio_init
+<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCompare2
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_PriorityGroupConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[d3]"></a>manual_flow_process</STRONG> (Thumb, 246 bytes, Stack size 16 bytes, flow.o(i.manual_flow_process))
+<P><STRONG><a name="[d6]"></a>manual_flow_process</STRONG> (Thumb, 246 bytes, Stack size 16 bytes, flow.o(i.manual_flow_process))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = manual_flow_process
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_operation
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_steering_engine_angle
-<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_steering_engine_angle
+<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_operation
+<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_steering_engine_angle
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_steering_engine_angle
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_process
+<BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_process
 </UL>
 
-<P><STRONG><a name="[d7]"></a>manual_flow_switch</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, flow.o(i.manual_flow_switch))
+<P><STRONG><a name="[d9]"></a>manual_flow_switch</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, flow.o(i.manual_flow_switch))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = manual_flow_switch &rArr; flow_switch_to
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_switch_to
+<BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_switch_to
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_switch
+<BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_switch
 </UL>
 
-<P><STRONG><a name="[ed]"></a>motion_control</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, application.o(i.motion_control))
+<P><STRONG><a name="[ef]"></a>motion_control</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, application.o(i.motion_control))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = motion_control &rArr; steering_engine_control
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;steering_engine_control
@@ -1503,55 +1511,55 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[c5]"></a>motion_init</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, application.o(i.motion_init))
+<P><STRONG><a name="[c8]"></a>motion_init</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, application.o(i.motion_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = motion_init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_steering_engine
 <LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_dc_motor
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;car_init
+<BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;car_init
 </UL>
 
-<P><STRONG><a name="[e3]"></a>motor_left_pwm_init</STRONG> (Thumb, 176 bytes, Stack size 56 bytes, tim.o(i.motor_left_pwm_init))
+<P><STRONG><a name="[e5]"></a>motor_left_pwm_init</STRONG> (Thumb, 176 bytes, Stack size 56 bytes, tim.o(i.motor_left_pwm_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = motor_left_pwm_init &rArr; GPIO_PinAFConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
+<BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHB1PeriphClockCmd
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
 <LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC4PreloadConfig
 <LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC4Init
 <LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC3PreloadConfig
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC3Init
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ARRPreloadConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e4]"></a>motor_right_pwm_init</STRONG> (Thumb, 176 bytes, Stack size 56 bytes, tim.o(i.motor_right_pwm_init))
+<P><STRONG><a name="[e6]"></a>motor_right_pwm_init</STRONG> (Thumb, 176 bytes, Stack size 56 bytes, tim.o(i.motor_right_pwm_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = motor_right_pwm_init &rArr; GPIO_PinAFConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
+<BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHB1PeriphClockCmd
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
 <LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC2PreloadConfig
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC2Init
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC1PreloadConfig
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC1Init
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ARRPreloadConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e6]"></a>mpu6050_Init</STRONG> (Thumb, 122 bytes, Stack size 8 bytes, mpu6050.o(i.mpu6050_Init))
+<P><STRONG><a name="[e8]"></a>mpu6050_Init</STRONG> (Thumb, 122 bytes, Stack size 8 bytes, mpu6050.o(i.mpu6050_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = mpu6050_Init &rArr; MPU_Set_Rate &rArr; MPU_Set_LPF &rArr; MPU_Write_Byte &rArr; IIC_Wait_Ack &rArr; IIC_Stop
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<BR>[Calls]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Init
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU_Write_Byte
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU_Set_Rate
@@ -1563,15 +1571,15 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[ff]"></a>mpu6050_task</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, mpu6050.o(i.mpu6050_task))
-<BR><BR>[Stack]<UL><LI>Max Depth = 280<LI>Call Chain = mpu6050_task &rArr; mpu6050_update &rArr; MPU6050_Data_Process &rArr; IMUupdate &rArr; __hardfp_asin &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
+<BR><BR>[Stack]<UL><LI>Max Depth = 296<LI>Call Chain = mpu6050_task &rArr; mpu6050_update &rArr; MPU6050_Data_Process &rArr; IMUupdate &rArr; __hardfp_asin &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu6050_update
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_sensor_data
+<BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_sensor_data
 </UL>
 
 <P><STRONG><a name="[100]"></a>mpu6050_update</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, mpu6050.o(i.mpu6050_update))
-<BR><BR>[Stack]<UL><LI>Max Depth = 272<LI>Call Chain = mpu6050_update &rArr; MPU6050_Data_Process &rArr; IMUupdate &rArr; __hardfp_asin &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
+<BR><BR>[Stack]<UL><LI>Max Depth = 288<LI>Call Chain = mpu6050_update &rArr; MPU6050_Data_Process &rArr; IMUupdate &rArr; __hardfp_asin &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU_Read_Len
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6050_Data_Process
@@ -1579,12 +1587,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu6050_task
 </UL>
 
-<P><STRONG><a name="[c7]"></a>set_dc_motor_left_down_pwm</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, bsp.o(i.set_dc_motor_left_down_pwm))
+<P><STRONG><a name="[ca]"></a>set_dc_motor_left_down_pwm</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, bsp.o(i.set_dc_motor_left_down_pwm))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = set_dc_motor_left_down_pwm
 </UL>
 <BR>[Calls]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCompare4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;car_init
+<BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;car_init
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dc_motor_action_brake
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dc_motor_action_turn_right
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dc_motor_action_turn_left
@@ -1593,12 +1601,12 @@ Global Symbols
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dc_motor_action_advance
 </UL>
 
-<P><STRONG><a name="[c6]"></a>set_dc_motor_left_up_pwm</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, bsp.o(i.set_dc_motor_left_up_pwm))
+<P><STRONG><a name="[c9]"></a>set_dc_motor_left_up_pwm</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, bsp.o(i.set_dc_motor_left_up_pwm))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = set_dc_motor_left_up_pwm
 </UL>
 <BR>[Calls]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCompare3
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;car_init
+<BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;car_init
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dc_motor_action_brake
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dc_motor_action_turn_right
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dc_motor_action_turn_left
@@ -1607,16 +1615,17 @@ Global Symbols
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dc_motor_action_advance
 </UL>
 
-<P><STRONG><a name="[ee]"></a>set_dc_motor_operation</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, wheel.o(i.set_dc_motor_operation))
-<BR><BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;manual_flow_process
+<P><STRONG><a name="[c0]"></a>set_dc_motor_operation</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, wheel.o(i.set_dc_motor_operation))
+<BR><BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;manual_flow_process
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;auto_flow_process
 </UL>
 
-<P><STRONG><a name="[c9]"></a>set_dc_motor_right_down_pwm</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, bsp.o(i.set_dc_motor_right_down_pwm))
+<P><STRONG><a name="[cc]"></a>set_dc_motor_right_down_pwm</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, bsp.o(i.set_dc_motor_right_down_pwm))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = set_dc_motor_right_down_pwm
 </UL>
-<BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCompare2
+<BR>[Calls]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCompare2
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;car_init
+<BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;car_init
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dc_motor_action_brake
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dc_motor_action_turn_right
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dc_motor_action_turn_left
@@ -1625,12 +1634,12 @@ Global Symbols
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dc_motor_action_advance
 </UL>
 
-<P><STRONG><a name="[c8]"></a>set_dc_motor_right_up_pwm</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, bsp.o(i.set_dc_motor_right_up_pwm))
+<P><STRONG><a name="[cb]"></a>set_dc_motor_right_up_pwm</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, bsp.o(i.set_dc_motor_right_up_pwm))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = set_dc_motor_right_up_pwm
 </UL>
 <BR>[Calls]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCompare1
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;car_init
+<BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;car_init
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dc_motor_action_brake
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dc_motor_action_turn_right
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dc_motor_action_turn_left
@@ -1639,8 +1648,9 @@ Global Symbols
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dc_motor_action_advance
 </UL>
 
-<P><STRONG><a name="[f0]"></a>set_steering_engine_angle</STRONG> (Thumb, 80 bytes, Stack size 0 bytes, steering_engine.o(i.set_steering_engine_angle))
-<BR><BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;manual_flow_process
+<P><STRONG><a name="[c1]"></a>set_steering_engine_angle</STRONG> (Thumb, 80 bytes, Stack size 0 bytes, steering_engine.o(i.set_steering_engine_angle))
+<BR><BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;manual_flow_process
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;auto_flow_process
 </UL>
 
 <P><STRONG><a name="[bd]"></a>sqrt</STRONG> (Thumb, 110 bytes, Stack size 32 bytes, sqrt.o(i.sqrt))
@@ -1655,30 +1665,30 @@ Global Symbols
 <P><STRONG><a name="[6c]"></a>steering_engine_action_turn_fix__angle</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, steering_engine.o(i.steering_engine_action_turn_fix__angle))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = steering_engine_action_turn_fix__angle
 </UL>
-<BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCompare2
+<BR>[Calls]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCompare2
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> steering_engine.o(i.init_steering_engine)
 </UL>
 <P><STRONG><a name="[f2]"></a>steering_engine_control</STRONG> (Thumb, 32 bytes, Stack size 16 bytes, application.o(i.steering_engine_control))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = steering_engine_control
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motion_control
+<BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motion_control
 </UL>
 
 <P><STRONG><a name="[6b]"></a>steering_engine_op_turn_fix_angle</STRONG> (Thumb, 56 bytes, Stack size 0 bytes, steering_engine.o(i.steering_engine_op_turn_fix_angle))
 <BR>[Address Reference Count : 1]<UL><LI> steering_engine.o(i.init_steering_engine)
 </UL>
-<P><STRONG><a name="[ea]"></a>steering_engine_pwm_init</STRONG> (Thumb, 152 bytes, Stack size 48 bytes, tim.o(i.steering_engine_pwm_init))
+<P><STRONG><a name="[ec]"></a>steering_engine_pwm_init</STRONG> (Thumb, 152 bytes, Stack size 48 bytes, tim.o(i.steering_engine_pwm_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = steering_engine_pwm_init &rArr; GPIO_PinAFConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
+<BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHB1PeriphClockCmd
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
 <LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC2PreloadConfig
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC2Init
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ARRPreloadConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1696,22 +1706,22 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6050_Data_Process
 </UL>
 
-<P><STRONG><a name="[e5]"></a>sys_time_init</STRONG> (Thumb, 90 bytes, Stack size 32 bytes, tim.o(i.sys_time_init))
+<P><STRONG><a name="[e7]"></a>sys_time_init</STRONG> (Thumb, 90 bytes, Stack size 32 bytes, tim.o(i.sys_time_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = sys_time_init &rArr; NVIC_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
+<BR>[Calls]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ITConfig
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ITConfig
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e9]"></a>ultrasonic_gpio_init</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, gpio.o(i.ultrasonic_gpio_init))
+<P><STRONG><a name="[eb]"></a>ultrasonic_gpio_init</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, gpio.o(i.ultrasonic_gpio_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = ultrasonic_gpio_init &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<BR>[Calls]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHB1PeriphClockCmd
 </UL>
@@ -1725,27 +1735,27 @@ Global Symbols
 <LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_sensor_data
+<BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_sensor_data
 </UL>
 
-<P><STRONG><a name="[e8]"></a>ultrasonic_timer_init</STRONG> (Thumb, 182 bytes, Stack size 40 bytes, tim.o(i.ultrasonic_timer_init))
+<P><STRONG><a name="[ea]"></a>ultrasonic_timer_init</STRONG> (Thumb, 182 bytes, Stack size 40 bytes, tim.o(i.ultrasonic_timer_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = ultrasonic_timer_init &rArr; TIM_ICInit &rArr; TI4_Config
 </UL>
-<BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
+<BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
+<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHB1PeriphClockCmd
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ITConfig
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ITConfig
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICInit
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ec]"></a>update_sensor_data</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, application.o(i.update_sensor_data))
-<BR><BR>[Stack]<UL><LI>Max Depth = 288<LI>Call Chain = update_sensor_data &rArr; mpu6050_task &rArr; mpu6050_update &rArr; MPU6050_Data_Process &rArr; IMUupdate &rArr; __hardfp_asin &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
+<P><STRONG><a name="[ee]"></a>update_sensor_data</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, application.o(i.update_sensor_data))
+<BR><BR>[Stack]<UL><LI>Max Depth = 304<LI>Call Chain = update_sensor_data &rArr; mpu6050_task &rArr; mpu6050_update &rArr; MPU6050_Data_Process &rArr; IMUupdate &rArr; __hardfp_asin &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_task
 <LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu6050_task
@@ -1772,6 +1782,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_d2f
 </UL>
 <BR>[Called By]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_task
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6050_Data_Process
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IMUupdate
 </UL>
 
@@ -1816,6 +1827,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_dmul
 </UL>
 <BR>[Called By]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ultrasonic_task
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6050_Data_Process
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IMUupdate
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
@@ -1878,7 +1890,8 @@ Global Symbols
 <P><STRONG><a name="[96]"></a>__aeabi_f2d</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_f2d
 </UL>
-<BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IMUupdate
+<BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6050_Data_Process
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IMUupdate
 </UL>
 
 <P><STRONG><a name="[115]"></a>_f2d</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d), UNUSED)
@@ -1935,8 +1948,8 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICInit
 </UL>
 
-<P><STRONG><a name="[d8]"></a>get_flow_from_type</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, flow.o(i.get_flow_from_type))
-<BR><BR>[Called By]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_switch_to
+<P><STRONG><a name="[da]"></a>get_flow_from_type</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, flow.o(i.get_flow_from_type))
+<BR><BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_switch_to
 </UL>
 
 <P><STRONG><a name="[113]"></a>_dadd1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, daddsub_clz.o(x$fpl$dadd), UNUSED)

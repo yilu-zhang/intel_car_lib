@@ -170,7 +170,169 @@ void auto_flow_switch(void)
 
 void auto_flow_process(void)
 {
+	struct Flow *flow = &auto_flow;
+	struct Ultrasonic *ultra = &car.component.ultrasonic;
 	
+	static int8_t angle_flag;//向右为正，向左为负
+	
+	switch(flow->action_type)
+	{
+		case 0:
+			if(ultra->obstacle_diatance > 60)
+			{
+				set_dc_motor_operation(DC_MOTOR_OP_ADVANCE);
+			}
+			
+			else
+			{
+				set_dc_motor_operation(DC_MOTOR_OP_STOP);
+				flow->action_type = 1;
+				flow->action_start_time = systick_ms;
+			}
+			break;
+			
+		case 1:
+			set_steering_engine_angle(45);
+			if(systick_ms-flow->action_start_time>2000)
+			{
+				if(ultra->obstacle_diatance > 80)
+				{
+					angle_flag = 1;
+					flow->action_type = 6;
+				}
+				
+				else
+				{
+					flow->action_type = 2;
+					flow->action_start_time = systick_ms;
+				}
+			}
+			break;
+			
+		case 2:
+		set_steering_engine_angle(135);
+		if(systick_ms-flow->action_start_time>2000)
+		{
+			if(ultra->obstacle_diatance > 80)
+			{
+				angle_flag = -1;
+				flow->action_type = 6;
+			}
+			
+			else
+			{
+				flow->action_type = 3;
+				flow->action_start_time = systick_ms;
+			}
+		}
+		break;
+		
+		case 3:
+		set_steering_engine_angle(180);
+		if(systick_ms-flow->action_start_time>2000)
+		{
+			if(ultra->obstacle_diatance > 80)
+			{
+				angle_flag = -2;
+				flow->action_type = 6;
+			}
+			
+			else
+			{
+				flow->action_type = 4;
+				flow->action_start_time = systick_ms;
+			}
+		}
+		break;
+		
+		case 4:
+		set_steering_engine_angle(0);
+		if(systick_ms-flow->action_start_time>2000)
+		{
+			if(ultra->obstacle_diatance > 80)
+			{
+				angle_flag = 2;
+				flow->action_type = 6;
+			}
+			
+			else
+			{
+				flow->action_type = 5;
+				flow->action_start_time = systick_ms;
+			}
+		}
+		break;
+		
+		case 5:
+			set_dc_motor_operation(DC_MOTOR_OP_BACK);
+			if(systick_ms-flow->action_start_time>2000)
+			{
+				set_dc_motor_operation(DC_MOTOR_OP_STOP);
+				flow->action_type = 1;
+				flow->action_start_time = systick_ms;
+			}
+			break;
+				
+		case 6:
+			//set_steering_engine_angle(90);
+			car.component.mpu6050.target_angle = 0;
+			if(angle_flag > 0)
+			{
+				set_dc_motor_operation(DC_MOTOR_OP_TURN_RIGHT);
+			}
+			
+			else
+			{
+				set_dc_motor_operation(DC_MOTOR_OP_TURN_LEFT);
+			}
+			flow->action_type = 7;
+		    break;
+		
+		case 7:
+			//右转角度为正，左转角度为负
+			if((angle_flag > 0&&car.component.mpu6050.target_angle>=(45*angle_flag))||\
+				(angle_flag < 0&&car.component.mpu6050.target_angle<=(45*angle_flag)))
+			{
+				set_steering_engine_angle(90);
+				set_dc_motor_operation(DC_MOTOR_OP_STOP);
+				flow->action_start_time = systick_ms;
+				flow->action_type = 8;
+			}
+			break;
+				
+		case 8:
+			if(systick_ms-flow->action_start_time>2000)
+			{
+				flow->action_type = 0;
+			}
+			
+		
+		default:
+			break;							
+	}
+	
+//	switch(flow->action_type)
+//	{
+//		case 0:
+//			car.component.mpu6050.target_angle = 0;
+//			set_dc_motor_operation(DC_MOTOR_OP_TURN_LEFT);
+//			flow->action_type = 1;
+//		    break;
+//		
+//		case 1:
+//			//右转角度为正，左转角度为负
+//			if(car.component.mpu6050.target_angle<=-45)
+//			{
+//				set_dc_motor_operation(DC_MOTOR_OP_STOP);
+//				flow->action_type = 2;
+//			}
+//			
+//		case 2:
+//			break;
+//		
+//		default:
+//			break;			
+//	}
 }
 
 void flow_switch(void)

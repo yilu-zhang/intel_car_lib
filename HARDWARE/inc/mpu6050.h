@@ -84,7 +84,7 @@
 #define Ki 0.005f
 #define Kp 2.0f 
 #define Accel_2_Scale_Factor    16384.0f      //2^16/4
-#define Gyro_500_Rad_Factor     0.00026646f   //1000/2^16/57.3角速度精度  单位：弧度/s
+#define Gyro_500_Rad_Factor     0.00026646f   //1000/2^16/57.3角速度精度，57.3=180/pi  单位：弧度/s
 
 enum MPU6050_GYRO_OFFSET
 {
@@ -172,6 +172,7 @@ struct 	Mpu6050
 	struct Quaternion quaternion;
 	struct Integral_Error integral_error;
 	struct Attitude attitude;
+	float target_angle; //test
 };
 
 
