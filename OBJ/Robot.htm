@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\OBJ\Robot.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\Robot.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Tue Aug 13 23:53:34 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Wed Aug 14 09:07:35 2019
 <BR><P>
 <H3>Maximum Stack Usage =        312 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1164,7 +1164,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
 </UL>
 
-<P><STRONG><a name="[bf]"></a>auto_flow_process</STRONG> (Thumb, 564 bytes, Stack size 16 bytes, flow.o(i.auto_flow_process))
+<P><STRONG><a name="[bf]"></a>auto_flow_process</STRONG> (Thumb, 572 bytes, Stack size 16 bytes, flow.o(i.auto_flow_process))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = auto_flow_process
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_dc_motor_operation
@@ -1426,10 +1426,11 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_process
 </UL>
 
-<P><STRONG><a name="[d8]"></a>init_flow_switch</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, flow.o(i.init_flow_switch))
+<P><STRONG><a name="[d8]"></a>init_flow_switch</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, flow.o(i.init_flow_switch))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = init_flow_switch &rArr; flow_switch_to
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_switch_to
+<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_steering_engine_angle
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_switch
 </UL>
@@ -1494,10 +1495,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_process
 </UL>
 
-<P><STRONG><a name="[d9]"></a>manual_flow_switch</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, flow.o(i.manual_flow_switch))
+<P><STRONG><a name="[d9]"></a>manual_flow_switch</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, flow.o(i.manual_flow_switch))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = manual_flow_switch &rArr; flow_switch_to
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_switch_to
+<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_steering_engine_angle
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flow_switch
 </UL>
@@ -1649,7 +1651,9 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[c1]"></a>set_steering_engine_angle</STRONG> (Thumb, 80 bytes, Stack size 0 bytes, steering_engine.o(i.set_steering_engine_angle))
-<BR><BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;manual_flow_process
+<BR><BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;manual_flow_switch
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;manual_flow_process
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_flow_switch
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;auto_flow_process
 </UL>
 

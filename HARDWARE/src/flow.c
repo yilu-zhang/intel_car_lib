@@ -83,6 +83,7 @@ void init_flow_switch(void)
 	if(init_flow.switch_type == CAR_FLOW_TYPE_AUTO)	
 	{
 		flow_switch_to(CAR_FLOW_TYPE_INIT, CAR_FLOW_TYPE_AUTO);
+		set_steering_engine_angle(90);
 	}
 }
 
@@ -101,6 +102,7 @@ void manual_flow_switch(void)
 	if(manual_flow.switch_type == CAR_FLOW_TYPE_AUTO)	
 	{
 		flow_switch_to(CAR_FLOW_TYPE_MANUAL, CAR_FLOW_TYPE_AUTO);
+		set_steering_engine_angle(90);
 	}
 }
 
@@ -178,7 +180,7 @@ void auto_flow_process(void)
 	switch(flow->action_type)
 	{
 		case 0:
-			if(ultra->obstacle_diatance > 60)
+			if(ultra->obstacle_diatance > 50)
 			{
 				set_dc_motor_operation(DC_MOTOR_OP_ADVANCE);
 			}
@@ -193,9 +195,9 @@ void auto_flow_process(void)
 			
 		case 1:
 			set_steering_engine_angle(45);
-			if(systick_ms-flow->action_start_time>2000)
+			if(systick_ms-flow->action_start_time>1200)
 			{
-				if(ultra->obstacle_diatance > 80)
+				if(ultra->obstacle_diatance > 100)
 				{
 					angle_flag = 1;
 					flow->action_type = 6;
@@ -211,9 +213,9 @@ void auto_flow_process(void)
 			
 		case 2:
 		set_steering_engine_angle(135);
-		if(systick_ms-flow->action_start_time>2000)
+		if(systick_ms-flow->action_start_time>1200)
 		{
-			if(ultra->obstacle_diatance > 80)
+			if(ultra->obstacle_diatance > 100)
 			{
 				angle_flag = -1;
 				flow->action_type = 6;
@@ -229,9 +231,9 @@ void auto_flow_process(void)
 		
 		case 3:
 		set_steering_engine_angle(180);
-		if(systick_ms-flow->action_start_time>2000)
+		if(systick_ms-flow->action_start_time>1200)
 		{
-			if(ultra->obstacle_diatance > 80)
+			if(ultra->obstacle_diatance > 100)
 			{
 				angle_flag = -2;
 				flow->action_type = 6;
@@ -247,9 +249,9 @@ void auto_flow_process(void)
 		
 		case 4:
 		set_steering_engine_angle(0);
-		if(systick_ms-flow->action_start_time>2000)
+		if(systick_ms-flow->action_start_time>1200)
 		{
-			if(ultra->obstacle_diatance > 80)
+			if(ultra->obstacle_diatance > 100)
 			{
 				angle_flag = 2;
 				flow->action_type = 6;
@@ -265,7 +267,7 @@ void auto_flow_process(void)
 		
 		case 5:
 			set_dc_motor_operation(DC_MOTOR_OP_BACK);
-			if(systick_ms-flow->action_start_time>2000)
+			if(systick_ms-flow->action_start_time>1200)
 			{
 				set_dc_motor_operation(DC_MOTOR_OP_STOP);
 				flow->action_type = 1;
@@ -303,6 +305,7 @@ void auto_flow_process(void)
 		case 8:
 			if(systick_ms-flow->action_start_time>2000)
 			{
+				set_steering_engine_angle(90);
 				flow->action_type = 0;
 			}
 			
