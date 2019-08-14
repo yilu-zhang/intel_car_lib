@@ -3,13 +3,13 @@
 #include "self_define.h"
 
 //按正点原子开发指南85页修改时钟频率，这里已经修改过来
-uint32_t i=0,j=400,k,l;
 int main()
 {
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);//设置系统中断优先级分组2
-	
+	sys_time_init(839, 0); //84M/(0+1)=84Mhz的计数频率,重装载值839+1=840，所以PWM频率为 84M/84=100khz.
+
 	delay_init(168);
-	delay_ms(2000);  //等待电压稳定 
+	delay_ms(1000);  //等待电压稳定 
 	
 	led_init();
 	
@@ -18,7 +18,6 @@ int main()
 	motor_left_pwm_init(1999,20);
 	motor_right_pwm_init(1999,20); //84M/(20+1)=4Mhz的计数频率,重装载值(1999+1)=2000，所以PWM频率为 4M/2000=2khz.	
 		
-	sys_time_init(839, 0); //84M/(0+1)=84Mhz的计数频率,重装载值839+1=840，所以PWM频率为 84M/840=100Khz.
 	
 	infrared_remote_init();
 	
@@ -41,26 +40,14 @@ int main()
 	while(1)
 	{
 		if(system_flag_4ms_1 != system_flag_4ms_2)
-		{
-			i = j;
-			j = systick_10us;
-			if((j-i)!=400&&k>1000)
-				break;
-			
-			k++;
-			
+		{						
 			system_flag_4ms_1 = system_flag_4ms_2;
 			communication_task();
 			update_sensor_data();
 			flow_switch();
 			flow_process();
 			motion_control();
-			l = systick_10us - j;
 		}
-		
-		//LED0=!LED0;
-		//test();
-		//delay_ms(4);
 	}
 }
 

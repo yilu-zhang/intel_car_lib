@@ -48,12 +48,46 @@ struct Motion_Component
 	struct Steering_Engine steering_engine;
 };
 
+struct Obstacle
+{
+	float obstacle_diatance;  //实际距离，单位：cm
+};
+
+struct Attitude
+{
+	uint16_t error_counter;
+	int16_t pitch;
+	int16_t roll;
+	int16_t yaw;
+	float float_pitch;
+	float float_roll;
+	float float_yaw;
+	
+	float ax;
+	float ay;
+	float az;
+	
+	float vx;
+	float vy;
+	float vz;
+
+	int16_t gyro_pitch;
+	int16_t gyro_yaw;
+	int16_t gyro_roll;
+//	struct Window_Filter_signed filter_yaw;
+//	struct Window_Filter_signed filter_pitch;
+//	struct Window_Filter_signed filter_roll;
+};
+
 struct Car
 {
 	enum CAR_FLOW_TYPE flow_type;  //流程状态
 	
 	struct Flow *flow;  //当前流程，会使用指针不断切换，如：手动、自动流程
 	struct Motion_Component component;  //机器人电机等设备
+	
+	struct Obstacle obstacle;
+	struct Attitude attitude;
 };
 
 extern struct Car car;

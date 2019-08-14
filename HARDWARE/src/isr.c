@@ -18,8 +18,9 @@ uint8_t system_flag_4ms_2=0;
 void TIM4_IRQHandler(void)
 {
 	if(TIM_GetITStatus(SYSTEM_TIM,TIM_IT_Update)==SET) //溢出中断
-	{
+	{			
 		systick_10us++;  
+		
 		if(systick_10us%100==0)
 		{
 			systick_ms++;
@@ -136,7 +137,6 @@ void TIM5_IRQHandler(void)
 		}				 		     	    					   
 	}
 	
-	//TIM_ClearITPendingBit(ULTRASONIC_TIM,TIM_IT_CC1|TIM_IT_Update);  //清除中断标志位 
 	TIM_ClearITPendingBit(ULTRASONIC_TIM,TIM_IT_CC1);  //清除中断标志位 
 }
 

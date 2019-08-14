@@ -83,13 +83,13 @@ void IMUupdate(float gx, float gy, float gz, float ax, float ay, float az,\
 	vz = mpu->quaternion.q0*mpu->quaternion.q0 - mpu->quaternion.q1*mpu->quaternion.q1\
 		- mpu->quaternion.q2*mpu->quaternion.q2 + mpu->quaternion.q3*mpu->quaternion.q3;
   
-	mpu->attitude.ax = ax;
-	mpu->attitude.ay = ay;
-	mpu->attitude.az = az;
+	car.attitude.ax = ax;
+	car.attitude.ay = ay;
+	car.attitude.az = az;
 
-	mpu->attitude.vx = vx;
-	mpu->attitude.vy = vy;
-	mpu->attitude.vz = vz;
+	car.attitude.vx = vx;
+	car.attitude.vy = vy;
+	car.attitude.vz = vz;
 	
 	//现在把加速度的测量矢量和参考矢量做叉积，把磁场的测量矢量和参考矢量也做叉积。都拿来来修正陀螺。
 	// error is sum of cross product between reference direction of fields and direction measured by sensors
@@ -126,12 +126,12 @@ void IMUupdate(float gx, float gy, float gz, float ax, float ay, float az,\
     //sensor.attitude.pitch = sensor.attitude.float_pitch =90-atan2(vx,vy)*RAD;
     //sensor.attitude.float_yaw = atan2(2*q1*q2 + 2*q0*q3,-2*q2*q2 - 2*q3*q3 + 1) * RAD;  //偏航角，绕z轴转动
 	//从后往前看，横滚角正常，顺时针为负，逆时针为正，平放0；实际pitch对着yaw，float是yaw的10倍，前倾正，后仰负，平放0；实际yaw没反应，左右转三个方向都没反应；测试pitch85
-	mpu->attitude.roll = mpu->attitude.float_roll = -asin(vz) * RAD; //俯仰角，绕y轴转动	 
-    mpu->attitude.pitch = mpu->attitude.float_pitch =asin(vy)*RAD;
-    mpu->attitude.float_yaw = asin(vx) * RAD;  //偏航角，绕z轴转动
-    mpu->attitude.yaw  = 10.0f * mpu->attitude.float_yaw;
-	mpu->attitude.gyro_yaw = mpu->DMP_data.GYROz>>1;
-	mpu->attitude.gyro_roll=mpu->DMP_data.GYROy;
+	car.attitude.roll = car.attitude.float_roll = -asin(vz) * RAD; //俯仰角，绕y轴转动	 
+    car.attitude.pitch = car.attitude.float_pitch =asin(vy)*RAD;
+    car.attitude.float_yaw = asin(vx) * RAD;  //偏航角，绕z轴转动
+    car.attitude.yaw  = 10.0f * car.attitude.float_yaw;
+	car.attitude.gyro_yaw = mpu->DMP_data.GYROz>>1;
+	car.attitude.gyro_roll=mpu->DMP_data.GYROy;
 	
 }
 
@@ -153,8 +153,10 @@ void MPU6050_Data_Process(void)
 	mpu->DMP_data.GYROx = (mpu->data_buff[8]<<8)+mpu->data_buff[9];//对应mpu6050的-gyroy	   
 	mpu->DMP_data.GYROy = ((mpu->data_buff[10]<<8)+mpu->data_buff[11]); //对应mpu6050的gyroz	
 	mpu->DMP_data.GYROz = -((mpu->data_buff[12]<<8)+mpu->data_buff[13]);  //对应mpu6050的-gyrox
+
+	//平面旋转时，用于转弯
+	auto_flow_turn_angle+=(double)((mpu->DMP_data.GYROz-mpu->gyro_offset[MPU6050_GYROZ_OFFSET]))*0.00003051758;
 	
-	mpu->target_angle+=(float)((mpu->DMP_data.GYROz-mpu->gyro_offset[MPU6050_GYROZ_OFFSET])*0.00003051758);
 	//单位转化成：弧度/s，0.000266=1/(Gyro_500_Scale_Factor * 57.3) 
 	mpu->DMP_data.gx=(mpu->DMP_data.GYROx-mpu->gyro_offset[MPU6050_GYROX_OFFSET]) * Gyro_500_Rad_Factor;	   
 	mpu->DMP_data.gy=(mpu->DMP_data.GYROy-mpu->gyro_offset[MPU6050_GYROY_OFFSET]) * Gyro_500_Rad_Factor;	   

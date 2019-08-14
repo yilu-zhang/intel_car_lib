@@ -6,6 +6,8 @@
 #include "car_system.h"
 
 extern struct Flow init_flow;
+extern double auto_flow_turn_angle;
+
 
 void init_flow_map(void);
 void flow_switch(void);

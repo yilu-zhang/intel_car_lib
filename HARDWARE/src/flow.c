@@ -170,17 +170,19 @@ void auto_flow_switch(void)
 	}
 }
 
+double auto_flow_turn_angle;
 void auto_flow_process(void)
 {
 	struct Flow *flow = &auto_flow;
-	struct Ultrasonic *ultra = &car.component.ultrasonic;
+	struct Obstacle *obs = &car.obstacle;
+	struct Steering_Engine *steer = &car.component.steering_engine;
 	
-	static int8_t angle_flag;//向右为正，向左为负
+	static int8_t angle_flag;//向右为正，向左为负，1-45度，2-0度，-1-135度，-2-180度
 	
 	switch(flow->action_type)
 	{
 		case 0:
-			if(ultra->obstacle_diatance > 50)
+			if(obs->obstacle_diatance > AUTO_FLOW_ADVANCE_OBSTACLE_DISTANCE)
 			{
 				set_dc_motor_operation(DC_MOTOR_OP_ADVANCE);
 			}
@@ -195,9 +197,9 @@ void auto_flow_process(void)
 			
 		case 1:
 			set_steering_engine_angle(45);
-			if(systick_ms-flow->action_start_time>1200)
+			if(systick_ms-flow->action_start_time>AUTO_FLOW_DELAY_TIME)
 			{
-				if(ultra->obstacle_diatance > 100)
+				if(obs->obstacle_diatance > AUTO_FLOW_TURN_OBSTACLE_DISTANCE)
 				{
 					angle_flag = 1;
 					flow->action_type = 6;
@@ -213,9 +215,9 @@ void auto_flow_process(void)
 			
 		case 2:
 		set_steering_engine_angle(135);
-		if(systick_ms-flow->action_start_time>1200)
+		if(systick_ms-flow->action_start_time>AUTO_FLOW_DELAY_TIME)
 		{
-			if(ultra->obstacle_diatance > 100)
+			if(obs->obstacle_diatance > AUTO_FLOW_TURN_OBSTACLE_DISTANCE)
 			{
 				angle_flag = -1;
 				flow->action_type = 6;
@@ -231,9 +233,9 @@ void auto_flow_process(void)
 		
 		case 3:
 		set_steering_engine_angle(180);
-		if(systick_ms-flow->action_start_time>1200)
+		if(systick_ms-flow->action_start_time>AUTO_FLOW_DELAY_TIME)
 		{
-			if(ultra->obstacle_diatance > 100)
+			if(obs->obstacle_diatance > AUTO_FLOW_TURN_OBSTACLE_DISTANCE)
 			{
 				angle_flag = -2;
 				flow->action_type = 6;
@@ -249,9 +251,9 @@ void auto_flow_process(void)
 		
 		case 4:
 		set_steering_engine_angle(0);
-		if(systick_ms-flow->action_start_time>1200)
+		if(systick_ms-flow->action_start_time>AUTO_FLOW_DELAY_TIME)
 		{
-			if(ultra->obstacle_diatance > 100)
+			if(obs->obstacle_diatance > AUTO_FLOW_TURN_OBSTACLE_DISTANCE)
 			{
 				angle_flag = 2;
 				flow->action_type = 6;
@@ -267,7 +269,7 @@ void auto_flow_process(void)
 		
 		case 5:
 			set_dc_motor_operation(DC_MOTOR_OP_BACK);
-			if(systick_ms-flow->action_start_time>1200)
+			if(systick_ms-flow->action_start_time>AUTO_FLOW_DELAY_TIME)
 			{
 				set_dc_motor_operation(DC_MOTOR_OP_STOP);
 				flow->action_type = 1;
@@ -276,8 +278,8 @@ void auto_flow_process(void)
 			break;
 				
 		case 6:
-			//set_steering_engine_angle(90);
-			car.component.mpu6050.target_angle = 0;
+			set_steering_engine_angle(90);  //两种电机一起动时，舵机动不了
+			auto_flow_turn_angle = 0;
 			if(angle_flag > 0)
 			{
 				set_dc_motor_operation(DC_MOTOR_OP_TURN_RIGHT);
@@ -292,8 +294,8 @@ void auto_flow_process(void)
 		
 		case 7:
 			//右转角度为正，左转角度为负
-			if((angle_flag > 0&&car.component.mpu6050.target_angle>=(45*angle_flag))||\
-				(angle_flag < 0&&car.component.mpu6050.target_angle<=(45*angle_flag)))
+			if((angle_flag > 0&&auto_flow_turn_angle>=(45*angle_flag))||\
+				(angle_flag < 0&&auto_flow_turn_angle<=(45*angle_flag)))
 			{
 				set_steering_engine_angle(90);
 				set_dc_motor_operation(DC_MOTOR_OP_STOP);
@@ -303,39 +305,21 @@ void auto_flow_process(void)
 			break;
 				
 		case 8:
-			if(systick_ms-flow->action_start_time>2000)
+			//保证舵机转完
+			if(steer->setting_angle == 90 && steer->op.state == STEERING_ENGINE_OP_STATE_FINISH)
 			{
-				set_steering_engine_angle(90);
 				flow->action_type = 0;
 			}
+			else
+			{
+				set_steering_engine_angle(90);
+			}			
+			break;
 			
 		
 		default:
 			break;							
-	}
-	
-//	switch(flow->action_type)
-//	{
-//		case 0:
-//			car.component.mpu6050.target_angle = 0;
-//			set_dc_motor_operation(DC_MOTOR_OP_TURN_LEFT);
-//			flow->action_type = 1;
-//		    break;
-//		
-//		case 1:
-//			//右转角度为正，左转角度为负
-//			if(car.component.mpu6050.target_angle<=-45)
-//			{
-//				set_dc_motor_operation(DC_MOTOR_OP_STOP);
-//				flow->action_type = 2;
-//			}
-//			
-//		case 2:
-//			break;
-//		
-//		default:
-//			break;			
-//	}
+	}	
 }
 
 void flow_switch(void)

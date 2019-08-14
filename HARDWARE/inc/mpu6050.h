@@ -137,32 +137,6 @@ struct Integral_Error
 	float exInt,eyInt,ezInt;
 };
 
-struct Attitude
-{
-	uint16_t error_counter;
-	int16_t pitch;
-	int16_t roll;
-	int16_t yaw;
-	float float_pitch;
-	float float_roll;
-	float float_yaw;
-	
-	float ax;
-	float ay;
-	float az;
-	
-	float vx;
-	float vy;
-	float vz;
-
-	int16_t gyro_pitch;
-	int16_t gyro_yaw;
-	int16_t gyro_roll;
-//	struct Window_Filter_signed filter_yaw;
-//	struct Window_Filter_signed filter_pitch;
-//	struct Window_Filter_signed filter_roll;
-};
-
 struct 	Mpu6050
 {
 	u8 data_buff[14]; //加速度、温度、陀螺仪值
@@ -171,8 +145,6 @@ struct 	Mpu6050
 	struct DMP_Data DMP_data;
 	struct Quaternion quaternion;
 	struct Integral_Error integral_error;
-	struct Attitude attitude;
-	float target_angle; //test
 };
 
 

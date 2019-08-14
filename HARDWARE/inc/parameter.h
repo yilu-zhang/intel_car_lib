@@ -1,6 +1,12 @@
 #ifndef __PARAMETER_H
 #define __PARAMETER_H
 
+/*******************************auto_flow***********************************/
+#define AUTO_FLOW_DELAY_TIME 1200
+#define AUTO_FLOW_ADVANCE_OBSTACLE_DISTANCE 50
+#define AUTO_FLOW_TURN_OBSTACLE_DISTANCE 100   //在转弯时设置较大的值，避免反复探测
+
+
 /*******************************motor***********************************/
 //用四节干电池供电，且在低电量时，单轮转，最低速500，四轮转最低速600
 #define DC_MOTOR_STOP_SPEED 0

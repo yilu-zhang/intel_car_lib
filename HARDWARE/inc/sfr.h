@@ -64,8 +64,4 @@
 
 
 
-
-extern uint32_t systick_10us;  //11.93hÒç³ö
-extern uint32_t systick_ms;    //1193hÒç³ö
-
 #endif

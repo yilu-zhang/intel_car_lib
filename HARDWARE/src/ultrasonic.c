@@ -1,5 +1,6 @@
 #include "ultrasonic.h"
 #include "car_system.h"
+#include "common.h"
 
 //开启超声波，产生宽度为30us脉冲
 void generate_ultrasonic_trigger_pulse(void)
@@ -29,7 +30,7 @@ void generate_ultrasonic_trigger_pulse(void)
 void ultrasonic_task(void)
 {
 	struct Ultrasonic *ultra = &car.component.ultrasonic;
-	if((systick_ms-ultra->open_time_ms)>=100)
+	if((systick_ms-ultra->open_time_ms) >= 70)
 	{
 		ultra->open_flag = true;
 		ultra->open_pulse_wait_rising_edge_flag=true;
@@ -39,7 +40,9 @@ void ultrasonic_task(void)
 	if(ultra->receive_data_flag)
 	{
 		ultra->receive_data_flag = false;
-		ultra->obstacle_diatance = ultra->pulse_value*0.017; //单位cm
+		
+		//ultra->pulse_value = window_average_filter(&ultra->filter,ultra->pulse_value);
+		car.obstacle.obstacle_diatance = ultra->pulse_value*0.017; //单位cm
 	}
 };
 

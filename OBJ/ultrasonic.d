@@ -52,3 +52,4 @@
 ..\obj\ultrasonic.o: ..\HARDWARE\inc\application.h
 ..\obj\ultrasonic.o: ..\HARDWARE\inc\flow.h
 ..\obj\ultrasonic.o: ..\HARDWARE\inc\car_system.h
+..\obj\ultrasonic.o: ..\HARDWARE\inc\common.h
